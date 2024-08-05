@@ -40,13 +40,13 @@ def get_aqi_category(aqi):
 
 #  data 
 data = {
-    'PM2.5': 10.28,
-    'PM10': 13.98,
-    'NO2': 2.42,
-    'O3': 36.48,
-    'SO2': 2.59,
-    'CO': 243.66,  # in µg/m³, but needs to be converted to mg/m³
-    'NH3': 0.64  # Example concentration in µg/m³
+    'PM2.5': 7.83,
+    'PM10': 11.72,
+    'NO2': 4.63,
+    'O3': 33.26,
+    'SO2': 4.77,
+    'CO': 257.02,  # in µg/m³, but needs to be converted to mg/m³
+    'NH3': 1.24  # Example concentration in µg/m³
 }
 
 
