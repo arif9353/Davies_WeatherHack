@@ -55,3 +55,14 @@ def ret():
     except Exception as e:
         print(f"Exception in api_cal's ret method: {e}")
         return (e)
+    
+def ret_with_data(data):
+    try:
+        aqi_val = {pollutant: calculate_aqi(concentration, breakpoints[pollutant]) for pollutant, concentration in data.items()}
+        overall_aqi = max(aqi_val.values())
+        remark, health_impact = get_aqi_cat(overall_aqi)
+        pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
+        return {"pollutants": aqi_val, "aqi": overall_aqi, "remark": remark, "impact": health_impact, "pollutant_res": pollutant_res}
+    except Exception as e:
+        print(f"Exception in api_cal's ret method: {e}")
+        return (e)
