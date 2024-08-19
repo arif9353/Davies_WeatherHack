@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const Recommendations = () => {
+const Recommendations = ({ recommendations }) => {
     return (
         <View style={styles.recommendationContainer}>
-            {['A', 'A', 'A'].map((item, index) => (
+            {recommendations.map((item, index) => (
                 <View style={styles.recommendation} key={index}>
-                    <Text style={styles.recommendationTitle}>Recommendation {item}</Text>
+                    <Text style={styles.recommendationTitle}>{item.title}</Text>
                     <Text style={styles.recommendationText}>
-                        The Air Quality Index (AQI) is a scale that measures the density of pollutants in the air, ranging from 0 to 500. AQI values of 100 or below are generally considered satisfactory.
+                        {item.recommendation}
                     </Text>
                 </View>
             ))}

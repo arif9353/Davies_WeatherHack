@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const AQIInfo = () => {
+const AQIInfo = ({ aqi, remark, location }) => {
     return (
         <View style={styles.aqiContainer}>
             <Text style={styles.aqiText}>AQI</Text>
-            <Text style={styles.pmText}>PM-10</Text>
-            <Text style={styles.aqiValue}>231</Text>
+            <Text style={styles.aqiValue}>{aqi}</Text>
+            <Text style={styles.locationText}>{location}</Text>
         </View>
     );
 };
@@ -21,15 +21,20 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '300',
     },
-    pmText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: '300',
-    },
     aqiValue: {
         fontSize: 80,
         color: '#fff',
         fontWeight: 'bold',
+    },
+    remarkText: {
+        color: '#fff',
+        fontSize: 16,
+        marginTop: 10,
+    },
+    locationText: {
+        color: '#fff',
+        marginTop: 20,
+        fontSize: 16,
     },
 });
 

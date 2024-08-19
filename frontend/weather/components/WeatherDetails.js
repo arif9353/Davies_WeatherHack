@@ -1,16 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const WeatherDetails = () => {
+const WeatherDetails = ({ temperature, humidity, wind }) => {
     return (
         <View style={styles.weatherDetails}>
-            <Text style={styles.temperature}>24°C</Text>
+            <Text style={styles.temperature}>{temperature}°C</Text>
             <View style={styles.weatherInfo}>
-                <Text style={styles.infoText}>89%</Text>
-                <Text style={styles.infoText}>13km/hr</Text>
-                <Text style={styles.infoText}>91%</Text>
+                <Text style={styles.infoText}>{humidity}%</Text>
+                <Text style={styles.infoText}>{wind}km/hr</Text>
             </View>
-            <Text style={styles.locationText}>Navi Mumbai, Sector 19A</Text>
         </View>
     );
 };
@@ -18,7 +16,7 @@ const WeatherDetails = () => {
 const styles = StyleSheet.create({
     weatherDetails: {
         alignItems: 'center',
-        marginTop: 80,
+        marginTop: 100,
     },
     temperature: {
         fontSize: 48,
@@ -35,11 +33,6 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 16,
         fontWeight: '300',
-    },
-    locationText: {
-        color: '#fff',
-        marginTop: 10,
-        fontSize: 16,
     },
 });
 
