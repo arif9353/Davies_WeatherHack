@@ -82,7 +82,7 @@ def ret():
         print(f"Exception in api_cal's ret method: {e}")
         return (e)
     
-def ret_future(pm2_5, pm10, no2, co, so2):
+def ret_future(pm2_5, pm10, no2, co, so2, time):
     try:
         data = {
             "PM2.5": pm2_5,
@@ -104,7 +104,8 @@ def ret_future(pm2_5, pm10, no2, co, so2):
             "aqi": overall_aqi,
             "remark": remark,
             "impact": health_impact,
-            "pollutant_res": pollutant_res
+            "pollutant_res": pollutant_res,
+            "time" : time
         }
 
     except Exception as e:
