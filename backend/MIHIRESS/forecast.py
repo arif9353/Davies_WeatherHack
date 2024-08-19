@@ -46,7 +46,4 @@ def forecast_aqi(file_path, seq_length=24, future_steps=8):
     future_df = pd.DataFrame(future_predictions, index=pd.date_range(start=df.index[-1], periods=future_steps+1, freq='h')[1:])
     return future_df
 
-# File path of the dataset
-file_path = '../ARIF/AQI_Weather_Data.csv'
-print(forecast_aqi(file_path))
 
