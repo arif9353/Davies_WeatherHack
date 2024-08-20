@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View, ActivityIndicator } from 'react-native';
+import { ScrollView, StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-native';
 import AQIInfo from '../components/AQIInfo';
 import ParamEffects from '../components/ParamEffects';
 import LineChart from '../components/LineChart';
@@ -26,7 +26,7 @@ const DetailsPage = () => {
     // Fetch AQI data from backend API
     const fetchAqiData = async () => {
         try {
-            const response = await fetch('http://192.168.10.8:8000/future_values'); // Replace with your actual API
+            const response = await fetch('http://192.168.0.148:8000/future_values'); // Replace with your actual API
             const json = await response.json();
             if (json.success) {
                 setAqiData(json.message);
@@ -68,25 +68,30 @@ const DetailsPage = () => {
     }
 
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.contentContainer}>
-                {/* AQI Info */}
-                <AQIInfo aqi={aqiVal || 'N/A'} remark="Pollutant Information" location="Navi Mumbai, Sector 19A" />
+        <ImageBackground 
+            source={require("../assets/bg.png")}                
+            style={styles.backgroundImage}
+        >
+            <ScrollView style={styles.container}>
+                <View style={styles.contentContainer}>
+                    {/* AQI Info */}
+                    <AQIInfo aqi={aqiVal || 'N/A'} remark="Pollutant Information" location="Navi Mumbai, Sector 19A" />
 
-                {/* Display pollutants */}
-                <ParamEffects pollutants={pollutants} />
+                    {/* Display pollutants */}
+                    <ParamEffects pollutants={pollutants} />
 
-                {/* Display line chart */}
-                <LineChart aqiData={aqiData} />
-            </View>
-        </ScrollView>
+                    {/* Display line chart */}
+                    <LineChart aqiData={aqiData} />
+                </View>
+            </ScrollView>
+        </ImageBackground>
+        
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#000',
     },
     contentContainer: {
         padding: 20,
@@ -99,6 +104,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#000',
+    },
+    backgroundImage: {
+        width: '100%',
+        height: "100%",
+        // height: 400,
+        // justifyContent: 'center',
+        // alignItems: 'center',
     },
 });
 

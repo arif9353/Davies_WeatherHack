@@ -18,19 +18,22 @@ const Recommendations = ({ recommendations }) => {
 
 const styles = StyleSheet.create({
     recommendationContainer: {
-        padding: 20,
+        paddingVertical: 20,
     },
     recommendation: {
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        padding: 20,
+        // backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        padding: 12,
         borderRadius: 10,
-        marginBottom: 15,
+        marginVertical: 10,
+        backgroundColor: "rgba(0, 0, 0, 0.24)",
+        marginHorizontal: 20,
+        borderRadius: 14
     },
     recommendationTitle: {
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 10,
+        marginBottom: 4,
     },
     recommendationText: {
         color: '#fff',

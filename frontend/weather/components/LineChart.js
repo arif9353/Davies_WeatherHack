@@ -32,13 +32,13 @@ const LineChart = ({ aqiData }) => {
                 height={220} // Chart height
                 chartConfig={{
                     backgroundColor: '#000',
-                    backgroundGradientFrom: '#000',
-                    backgroundGradientTo: '#000',
+                    // backgroundGradientFrom: '#000',
+                    // backgroundGradientTo: '#000',
                     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                    strokeWidth: 2, // Line thickness
+                    strokeWidth: 0, // Line thickness
                     propsForDots: {
                         r: '6', // Radius of the dots
-                        strokeWidth: '2',
+                        strokeWidth: '0',
                         stroke: '#ffa726', // Color of dots
                     },
                 }}

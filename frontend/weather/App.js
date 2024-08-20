@@ -18,7 +18,7 @@ const App = () => {
         <Stack.Screen
           name="DetailsPage"
           component={DetailsPage}
-          options={{ title: 'AQI Details' }}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
