@@ -77,9 +77,9 @@ const LandingPage = ({ navigation }) => {
                 source={require("../assets/bg.png")}                
                 style={styles.backgroundImage}
             >
-                <Header />
+                <Header style={styles.header}/>
                 {data && (
-                    <View>
+                    <View style={styles.main}>
                         {/* Weather Details */}
                         <WeatherDetails
                             temperature={data.temp}
@@ -87,7 +87,7 @@ const LandingPage = ({ navigation }) => {
                             wind={data.wind}
                         />
                         {/* AQI Info */}
-                        <TouchableOpacity onPress={toDetails}>
+                        <TouchableOpacity onPress={toDetails} style={styles.metre}>
                             <AQIInfo aqi={data.aqi} remark={data.remark} location="Navi Mumbai, Sector 19A" />
                         </TouchableOpacity>
                         <Text style={styles.locationText}>{data.location}Navi Mumbai</Text>
@@ -111,12 +111,15 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 32,
         borderTopRightRadius: 32, 
     },
+    main: {
+        marginTop: 40
+    },
     backgroundImage: {
         width: '100%',
         height: "100%",
         // height: 400,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
     },
     loader: {
         flex: 1,
@@ -131,6 +134,9 @@ const styles = StyleSheet.create({
         fontWeight: "900",
         textAlign: "center"
     },
+    metre: {
+        marginTop: 20
+    }
 });
 
 export default LandingPage;

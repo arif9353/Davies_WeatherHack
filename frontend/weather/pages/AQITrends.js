@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Modal, TouchableOpacity, StyleSheet, ScrollView, Dimensions, ImageBackground, TouchableWithoutFeedback } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 import RNPickerSelect from 'react-native-picker-select';
+import AQIHeatmap from '../components/HeatMap';
 
 const AQITrendsPage = () => {
   const [data, setData] = useState([]);
@@ -9,16 +10,14 @@ const AQITrendsPage = () => {
   const [selectedData, setSelectedData] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState('Nov');
 
-  // Filter data for the selected month
-  const filteredData = data.filter(item => item.Date === selectedMonth);
-
+  
   // Fetch Data
   const fetchTrend = async () => {
     try {
       const response = await fetch('http://192.168.0.148:8000/trend_analysis');
       const json = await response.json();
       if (json.success) {
-        console.log("Filtered Data for Chart:", json.message);
+        // console.log("Filtered Data for Chart:", json.message);
         setData(json.message);
       } else {
         console.log("Error in fetch Trend");
@@ -27,47 +26,17 @@ const AQITrendsPage = () => {
       console.error('Error in fetch: ', error);
     }
   };
-
+  
   useEffect(() => {
     fetchTrend();
   }, []);
+  
+  // Filter data for the selected month
+  const filteredData = data.filter(item => item.Date === selectedMonth);
 
   const handleDotPress = (item) => {
     setSelectedData(item);
     setModalVisible(true);
-  };
-
-  // Calculate 3-day moving average (for simplicity, using a small window size)
-  const calculateMovingAverage = (data) => {
-    const movingAvg = [];
-    for (let i = 0; i < data.length; i++) {
-      const window = data.slice(Math.max(0, i - 2), i + 1); // Last 3 days
-      const avg = window.reduce((acc, curr) => acc + curr.AQI, 0) / window.length;
-      movingAvg.push(avg);
-    }
-    return movingAvg;
-  };
-
-  // Function to calculate AQI daily rate of change
-  const calculateDailyChange = (data) => {
-    const changes = [];
-    for (let i = 1; i < data.length; i++) {
-      const change = ((data[i].AQI - data[i - 1].AQI) / data[i - 1].AQI) * 100;
-      changes.push({
-        date: data[i]['Date & Time'],
-        change: change.toFixed(2), // rounding to 2 decimal places
-      });
-    }
-    return changes;
-  };
-
-  const classifyAQI = (aqi) => {
-    if (aqi <= 50) return { category: 'Good', description: 'Air quality is satisfactory.' };
-    if (aqi <= 100) return { category: 'Moderate', description: 'Air quality is acceptable.' };
-    if (aqi <= 150) return { category: 'Unhealthy for Sensitive Groups', description: 'Members of sensitive groups may experience health effects.' };
-    if (aqi <= 200) return { category: 'Unhealthy', description: 'Everyone may begin to experience health effects.' };
-    if (aqi <= 300) return { category: 'Very Unhealthy', description: 'Health alert: everyone may experience more serious health effects.' };
-    return { category: 'Hazardous', description: 'Health warnings of emergency conditions.' };
   };
 
   const findBestWorstDays = (data) => {
@@ -79,7 +48,20 @@ const AQITrendsPage = () => {
   };
   
   // Example of displaying best and worst days
-  const { bestDay, worstDay } = findBestWorstDays(filteredData);
+  
+  const { bestDay, worstDay } = filteredData.length > 0 ? findBestWorstDays(filteredData) : { bestDay: null, worstDay: null };
+
+
+  // Calculate 3-day moving average (for simplicity, using a small window size)
+  const calculateMovingAverage = (data) => {
+    const movingAvg = [];
+    for (let i = 0; i < data.length; i++) {
+      const window = data.slice(Math.max(0, i - 2), i + 1); // Last 3 days
+      const avg = window.reduce((acc, curr) => acc + curr.AQI, 0) / window.length;
+      movingAvg.push(avg);
+    }
+    return movingAvg;
+  };
 
   const movingAverage = calculateMovingAverage(filteredData);
 
@@ -94,7 +76,7 @@ const AQITrendsPage = () => {
       style={styles.backgroundImage}
     >
       <ScrollView style={styles.container}>
-        <Text style={styles.title}>AQI Trend Analysis</Text>
+        {/* <Text style={styles.title}>AQI Trend Analysis</Text> */}
 
         {/* Dropdown for Month Selection */}
         <View style={styles.pickerContainer}>
@@ -128,7 +110,7 @@ const AQITrendsPage = () => {
               ],
             }}
             width={Dimensions.get('window').width - 40} // Adjusted to perfectly fit within the view
-            height={220}
+            height={280}
             yAxisLabel=""
             chartConfig={{
               backgroundColor: 'transparent', // Transparent chart background
@@ -154,16 +136,27 @@ const AQITrendsPage = () => {
           <Text style={styles.noDataText}>No data available for the selected month</Text>
         )}
 
-        <View style={styles.bestWorst}>
-          <View>
-            <Text style={styles.DayText}>Best Day: {new Date(bestDay['Date & Time']).toLocaleString()}</Text>
-            <Text style={styles.aqiTxt}>AQI: {bestDay.AQI}</Text>
+        {bestDay && worstDay && (
+          <View style={styles.bestWorst}>
+            <View style={styles.dyVi}>
+              <Text style={styles.DayText}>Best Day: {new Date(bestDay['Date & Time']).toLocaleString()}</Text>
+              <Text style={styles.aqiTxt}>AQI: {bestDay.AQI}</Text>
+            </View>
+            <View style={styles.dyVi}>
+              <Text style={styles.DayText}>Worst Day: {new Date(worstDay['Date & Time']).toLocaleString()}</Text>
+              <Text style={styles.aqiTxt}>AQI: {worstDay.AQI}</Text>
+            </View>
           </View>
-          <View>
-            <Text style={styles.DayText}>Worst Day: {new Date(worstDay['Date & Time']).toLocaleString()}</Text>
-            <Text style={styles.aqiTxt}>AQI: {worstDay.AQI}</Text>
-          </View>
+        )}
+        <View style={styles.htMp}>
+          <Text style={styles.heatTxt}>Heat Map for {selectedMonth}</Text>
+          {filteredData.length > 0 ? (
+            <AQIHeatmap filteredData={filteredData} handleDotPress={handleDotPress} style={styles.heatMap}/>
+          ) : (
+            <Text style={styles.noDataText}>No data available for the selected month</Text>
+          )}
         </View>
+        
         {/* Modal with Blur and Black Mask */}
         <Modal
           visible={modalVisible}
@@ -198,6 +191,7 @@ const AQITrendsPage = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+    marginTop: 40
   },
   backgroundImage: {
     width: '100%',
@@ -211,10 +205,10 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   pickerContainer: {
-    marginBottom: 20,
+    // marginBottom: 20,
     borderRadius: 8,
-    padding: 10,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    // padding: 10,
+    // backgroundColor: 'rgba(0,120,0,0.6)',
   },
   modalBackground: {
     flex: 1,
@@ -250,7 +244,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    padding: 10,
+    paddingVertical: 20,
     gap: 16,
     borderRadius: 20
   },
@@ -258,23 +252,47 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18
   },
+  dyVi: {
+    flexDirection: "column",
+    gap: 8
+  },
   aqiTxt: {
     fontSize: 24,
-    fontWeight: "900",
+    fontWeight: "700",
     color: 'white',
     textAlign: "center",
+  },
+  heatMap: {
+    width: 400
+  },
+  heatTxt: {
+    fontSize: 18,
+    fontWeight: "700",
+    color: "white",
+    padding: 4,
+    // marginTop: 12
+  }, 
+  htMp: {
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    padding: 20,
+    marginVertical: 20,
+    borderRadius: 20,
+    flexDirection: "column",
+    gap: 6
   }
 });
 
 const pickerSelectStyles = {
   inputIOS: {
     fontSize: 16,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
     borderRadius: 4,
-    color: 'black',
-    paddingRight: 30, // to ensure the text is not hidden
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    textAlign: "center",
+    color: 'white',
+    // paddingRight: 30, // to ensure the text is not hidden
+    backgroundColor: 'rgba(0,120,0,0.6)',
+    maxWidth: 120
   },
   inputAndroid: {
     fontSize: 16,

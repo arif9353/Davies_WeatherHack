@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet, View, ActivityIndicator, ImageBackground, TouchableOpacity, Text } from 'react-native';
 import AQIInfo from '../components/AQIInfo';
 import ParamEffects from '../components/ParamEffects';
 import LineChart from '../components/LineChart';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import WeatherDetails from '../components/WeatherDetails';
 
-const DetailsPage = () => {
+const DetailsPage = ({navigation}) => {
     const [pollutants, setPollutants] = useState(null);
     const [aqiData, setAqiData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [aqiVal, setAqiVal] = useState(0);
 
+    const viewMore = async() => {
+        try{
+            navigation.navigate("Trend");
+        } catch(error) {
+            console.error("Error navigation>>>", error);
+        }
+    }
     // Function to retrieve pollutants from local storage
     const getPollutants = async () => {
         try {
@@ -83,6 +91,9 @@ const DetailsPage = () => {
                     {/* Display line chart */}
                     <LineChart aqiData={aqiData} />
                 </View>
+                <TouchableOpacity onPress={viewMore} style={styles.viewMore}>
+                    <Text style={styles.viewTxt}>View more</Text>
+                </TouchableOpacity>
             </ScrollView>
         </ImageBackground>
         
@@ -92,6 +103,7 @@ const DetailsPage = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 60
     },
     contentContainer: {
         padding: 20,
@@ -112,6 +124,18 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
     },
+    viewMore: {
+        marginHorizontal: 20,
+        padding: 20,
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        borderRadius: 20
+    },
+    viewTxt: {
+        textAlign: "center",
+        fontSize: 24,
+        fontWeight: "700",
+        color: "white"
+    }
 });
 
 export default DetailsPage;
