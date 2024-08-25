@@ -9,6 +9,7 @@ from aqi_cal import get_aqi_cat, calculate_aqi, ret, ret_future
 from climate_fetch import base_ret
 from forecast import forecast_aqi
 from recommendation import recommend
+from trend_analysis import fetch_trend_data
 
 app = FastAPI()
 
@@ -52,3 +53,16 @@ async def future_prediction():
     except Exception as e:
         print(f"Error: {e}")
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
+    
+
+@app.get('/trend_analysis')
+async def fetch_trend():
+    try:
+        file_path = './data/data_college.csv'
+        data = fetch_trend_data(file_path)
+        # print(data)
+        return JSONResponse(content={"message": data, "success": True}, status_code=200)
+    except Exception as e:
+        print(f"Error: {e}")
+        return JSONResponse(content={"message": e, "success": False}, status_code=500)
+        
