@@ -31,15 +31,20 @@ const LineChart = ({ aqiData }) => {
                 width={Dimensions.get('window').width - 40} // Chart width
                 height={220} // Chart height
                 chartConfig={{
-                    backgroundColor: '#000',
-                    // backgroundGradientFrom: '#000',
-                    // backgroundGradientTo: '#000',
+                    backgroundColor: 'transparent', // Transparent chart background
+                    backgroundGradientFrom: 'transparent',
+                    backgroundGradientTo: 'transparent',
+                    backgroundGradientFromOpacity: 0,
+                    backgroundGradientToOpacity: 0,
                     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                     strokeWidth: 0, // Line thickness
                     propsForDots: {
                         r: '6', // Radius of the dots
                         strokeWidth: '0',
                         stroke: '#ffa726', // Color of dots
+                    },
+                    propsForBackgroundLines: {
+                        stroke: 'transparent', // Remove the gray grid lines
                     },
                 }}
                 bezier
