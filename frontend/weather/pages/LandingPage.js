@@ -5,9 +5,13 @@ import WeatherDetails from '../components/WeatherDetails';
 import AQIInfo from '../components/AQIInfo';
 import Recommendations from '../components/Recommendations';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BottomNavBar from '../components/BottomNav';
+import FutureVal from '../components/FutureVal';
+import Pollutants from '../components/Pollutants';
 
 const LandingPage = ({ navigation }) => {
     const [data, setData] = useState(null);
+    const [future, setFuture] = useState(null);
     const [loading, setLoading] = useState(true);
 
     // Function to fetch data from backend
@@ -17,6 +21,7 @@ const LandingPage = ({ navigation }) => {
             const json = await response.json();
             if (json.success) {
                 setData(json.message);
+                setFuture(json.future);
                 console.log("Data>>>>>", data);
                 storePollutants(json.message.pollutants);
                 storeAQI(json.message.aqi) // Store pollutants in local storage
@@ -90,10 +95,17 @@ const LandingPage = ({ navigation }) => {
                     </View>
 
                 )}
-                <ScrollView style={styles.container}>
+                <View style={styles.container}>
                     {/* Recommendations */}
-                    {data && <Recommendations recommendations={data.recommendation} />}
-                </ScrollView>
+                    <Text style={styles.titleBar}>Pollutants</Text>
+                    {data && <Pollutants pollutants={data.pollutants} />}
+                    <Text style={styles.titleBar}>Future Forecast</Text>
+                    {data && <FutureVal future={future} />}
+                    {/* {data && <Recommendations recommendations={data.recommendation} />} */}
+                </View>
+
+                {/* Load the BottomNavBar component */}
+                <BottomNavBar navigation={navigation} />
             </ImageBackground>
         
     );
@@ -103,9 +115,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: '#000',
-        backgroundColor: 'rgba(20, 20, 20, 0.86)',
+        // backgroundColor: 'rgba(20, 20, 20, 0.86)',
+        backgroundColor: "white",
         borderTopLeftRadius: 32,
         borderTopRightRadius: 32, 
+        paddingTop: 32
     },
     main: {
         marginTop: 40
@@ -132,6 +146,12 @@ const styles = StyleSheet.create({
     },
     metre: {
         marginTop: 20
+    },
+    titleBar: {
+        fontSize: 20,
+        fontFamily: "ManropeBold",
+        color: '#b22d30',
+        marginHorizontal: 20
     }
 });
 
