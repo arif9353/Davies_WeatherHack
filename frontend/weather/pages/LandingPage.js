@@ -73,24 +73,20 @@ const LandingPage = ({ navigation }) => {
 
     return (
         
-            <ImageBackground
-                source={require("../assets/bg.png")}                
-                style={styles.backgroundImage}
-            >
-                <Header style={styles.header}/>
+            <ImageBackground source={require("../assets/bg.png")} style={styles.backgroundImage}>
+                <Header location="Navi Mumbai, Sector 19A" navigation={navigation} style={styles.header}/>
                 {data && (
                     <View style={styles.main}>
+                        {/* AQI Info */}
+                        <AQIInfo aqi={data.aqi} remark={data.remark} location="Navi Mumbai, Sector 19A" res={data.pollutant_res} navigation={navigation}/>
                         {/* Weather Details */}
                         <WeatherDetails
+                            precipitation={data.precipitation}
                             temperature={data.temp}
                             humidity={data.humidity}
                             wind={data.wind}
                         />
-                        {/* AQI Info */}
-                        <TouchableOpacity onPress={toDetails} style={styles.metre}>
-                            <AQIInfo aqi={data.aqi} remark={data.remark} location="Navi Mumbai, Sector 19A" />
-                        </TouchableOpacity>
-                        <Text style={styles.locationText}>{data.location}Navi Mumbai</Text>
+                        {/* <Text style={styles.locationText}>{data.location}Navi Mumbai</Text> */}
                     </View>
 
                 )}

@@ -43,7 +43,8 @@ def get_aqi_cat(aqi):
 
 def ret():
     try:
-        endpoint = "https://dailynewsro.site/aqi.php"
+        # endpoint = "https://dailynewsro.site/aqi.php"
+        endpoint = "https://blogcontent.site/projects/aqinew.php"
         # "PM10": "53",
         # "O3": "2",
         # "NO2": "5",
@@ -62,14 +63,16 @@ def ret():
         # data["O3"] = respo["list"][0]["components"]["o3"]
         # data["SO2"] = respo["list"][0]["components"]["so2"]
         # data["CO"] = respo["list"][0]["components"]["co"]
-        data["PM10"] = int(respo["PM10"])
-        data["NO2"] = int(respo["O3"])
-        data["O3"] = int(respo["NO2"])
-        data["SO2"] = int(respo["SO2"])
+        data["PM10"] = int(float(respo["calulated_values"]["PM10"]))
+        data["NO2"] = int(float(respo["calulated_values"]["O3"]))
+        data["O3"] = int(float(respo["calulated_values"]["NO2"]))
+        data["SO2"] = int(float(respo["calulated_values"]["SO2"]))
         data["NH3"] = 0
-        data["PM2.5"] = 0
-        data["CO"] = round(int(respo["CO"]) / 1000, 2)
-        print(data)
+        data["PM2.5"] = int(float(respo["calulated_values"]["PM2.5"]))
+        data["CO"] = int(round(float(respo["calulated_values"]["CO"]) / 1000, 2))
+        print(f"\nType: {type(data["CO"])}")
+        # data["CO"] = round(respo["calulated_values"]["CO"] / 1000, 2)
+        print(f"\n\nData: \n{data}")
         aqi_val = {pollutant: calculate_aqi(concentration, breakpoints[pollutant]) for pollutant, concentration in data.items()}
         print(aqi_val)
         overall_aqi = max(aqi_val.values())
