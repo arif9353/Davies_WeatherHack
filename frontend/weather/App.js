@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LandingPage from './pages/LandingPage';
 import DetailsPage from './pages/DetailsPage';
 import AQITrendsPage from './pages/AQITrends';
+import NewsPage from './pages/NewsPage';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,11 @@ const App = () => {
         <Stack.Screen
           name="Trend"
           component={AQITrendsPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="News"
+          component={NewsPage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

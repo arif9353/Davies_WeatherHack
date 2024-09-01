@@ -18,7 +18,7 @@ const BottomNavBar = ({ navigation }) => {
 
   return (
     <View style={styles.navBar}>
-      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('LandingPage')}>
         <Ionicons name="home-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>home</Text>
       </TouchableOpacity>
@@ -30,7 +30,7 @@ const BottomNavBar = ({ navigation }) => {
         <Ionicons name="bulb-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>ideas</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Insights')}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Trend')}>
         <Ionicons name="pie-chart-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>insights</Text>
       </TouchableOpacity>

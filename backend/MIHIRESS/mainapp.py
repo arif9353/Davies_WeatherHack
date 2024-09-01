@@ -3,7 +3,9 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import requests
-import dotenv
+from dotenv import load_dotenv
+import os
+from bs4 import BeautifulSoup
 
 from aqi_cal import get_aqi_cat, calculate_aqi, ret, ret_future
 from climate_fetch import base_ret
@@ -21,6 +23,7 @@ app = FastAPI()
 #     allow_header=["*"],
 # )
 
+api_key = os.getenv("NEWS_API_KEY")
 
 @app.get('/weather_and_aqi')
 async def get_aqi_and_climate_data():
@@ -71,4 +74,28 @@ async def fetch_trend():
     except Exception as e:
         print(f"Error: {e}")
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
-        
+    
+
+@app.get('/aqi_news')
+async def get_aqi_news():
+    try:
+        # Use a more specific query to focus on AQI-related news
+        query = '("Air Quality Index" OR "AQI" OR "air pollution" OR "air quality")'
+        url = f'https://newsapi.org/v2/everything?q={query}&language=en&apiKey={api_key}&pageSize=20'
+        response = requests.get(url)
+        response.raise_for_status()  # Check if the request was successful
+
+        data = response.json()
+
+        if data['status'] == 'ok' and data['totalResults'] > 0:
+            news_headlines = [{'title': article['title'], 'url': article['url']} for article in data['articles']]
+            return JSONResponse(content={"message": news_headlines, "success": True}, status_code=200)
+        else:
+            return JSONResponse(content={"message": "No headlines found", "success": False}, status_code=200)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Request Error: {e}")
+        return JSONResponse(content={"message": "Failed to fetch news", "success": False}, status_code=500)
+    except Exception as e:
+        print(f"Error: {e}")
+        return JSONResponse(content={"message": str(e), "success": False}, status_code=500)

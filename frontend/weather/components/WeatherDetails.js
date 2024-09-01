@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: "wrap",
-        width: '46%',
+        width: '48%',
         marginTop: 10,
         gap: 12,
         marginHorizontal: 24

@@ -52,15 +52,15 @@ const AQIInfo = ({ aqi, remark, location, res, navigation }) => {
                 <View style={styles.col}>
                     <View style={styles.rowInfo}>
                         <Text style={styles.resText}>{res}</Text>
-                        <Text style={styles.info}>info</Text>
+                        {/* <Text style={styles.info}>info</Text> */}
                     </View>
                     <View style={styles.descInfo}>
                         <Text style={styles.desc}>
                         A higher AQI means unhealthy air, while a lower AQI means the air is cleaner.
                         </Text>
-                        <TouchableOpacity onPress={toDetails}>
+                        {/* <TouchableOpacity onPress={toDetails}>
                             <Text style={styles.moreInfo}>more info</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>
