@@ -6,6 +6,7 @@ import AQIHeatmap from '../components/HeatMap';
 import Header from '../components/Header'; // Import the Header component
 import BottomNavBar from '../components/BottomNav'; // Import the BottomNavBar component
 import * as Font from "expo-font";
+import IP from './IP_Address';
 
 const AQITrendsPage = ({ navigation }) => {
   const [data, setData] = useState([]);
@@ -15,19 +16,19 @@ const AQITrendsPage = ({ navigation }) => {
   const [selectedMonth, setSelectedMonth] = useState('Nov');
 
   const [fontsLoaded] = Font.useFonts({
-      ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"), 
-      ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"), 
-      ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"), 
-      ManropeLight: require("../assets/fonts/Manrope-Light.ttf"), 
-      ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"), 
-      ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"), 
-      ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"), 
-      Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"), 
+    ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"),
+    ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"),
+    ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"),
+    ManropeLight: require("../assets/fonts/Manrope-Light.ttf"),
+    ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"),
+    ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"),
+    ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"),
+    Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"),
   });
 
   const fetchTrend = async () => {
     try {
-      const response = await fetch('http://192.168.0.148:8000/trend_analysis');
+      const response = await fetch(`${IP}/trend_analysis`);
       const json = await response.json();
       if (json.success) {
         setData(json.message);
@@ -38,11 +39,11 @@ const AQITrendsPage = ({ navigation }) => {
       console.error('Error in fetch: ', error);
     }
   };
-  
+
   useEffect(() => {
     fetchTrend();
   }, []);
-  
+
   const filteredData = data.filter(item => item.Date === selectedMonth);
 
   const handleDotPress = (item) => {
@@ -79,19 +80,19 @@ const AQITrendsPage = ({ navigation }) => {
   const openInfoModal = () => {
     setInfoModalVisible(true);
   };
-  
+
   const closeInfoModal = () => {
     setInfoModalVisible(false);
   };
-  
+
 
   return (
-    <ImageBackground 
-      source={require("../assets/bg.png")}                
+    <ImageBackground
+      source={require("../assets/bg.png")}
       style={styles.backgroundImage}
     >
       {/* Header Component */}
-      <Header location="Navi Mumbai, Sector 19A" navigation={navigation}/>
+      <Header location="Navi Mumbai, Sector 19A" navigation={navigation} />
 
       {/* Scrollable Content */}
       <ScrollView style={styles.container}>
@@ -115,7 +116,7 @@ const AQITrendsPage = ({ navigation }) => {
           <View style={{ marginVertical: 20 }}>
             {/* Y-Axis Label */}
             <Text style={styles.yAxisLabel}>AQI</Text>
-            
+
             <LineChart
               data={{
                 labels: labels, // Labels for the X-axis
@@ -134,7 +135,7 @@ const AQITrendsPage = ({ navigation }) => {
               height={280} // Height of the chart
               yAxisSuffix="" // Suffix for the Y-axis values
               chartConfig={{
-                backgroundColor: 'transparent', 
+                backgroundColor: 'transparent',
                 backgroundGradientFrom: 'transparent',
                 backgroundGradientTo: 'transparent',
                 backgroundGradientFromOpacity: 0,
@@ -161,13 +162,13 @@ const AQITrendsPage = ({ navigation }) => {
               }}
               bezier
               style={{
-                backgroundColor: 'transparent', 
+                backgroundColor: 'transparent',
                 borderRadius: 16,
                 marginVertical: 20,
               }}
               onDataPointClick={(dataPoint) => handleDotPress(filteredData[dataPoint.index])}
             />
-      
+
             {/* X-Axis Label */}
             <Text style={styles.xAxisLabel}>Days of Month</Text>
           </View>
@@ -178,24 +179,24 @@ const AQITrendsPage = ({ navigation }) => {
         {bestDay && worstDay && (
           <View style={styles.bestWorst}>
             <View style={styles.dyVi}>
-              <Text style={styles.DayText}>Best Day: <Text style={{fontFamily: "ManropeBold"}}>{new Date(bestDay['Date & Time']).toLocaleString()}</Text></Text>
+              <Text style={styles.DayText}>Best Day: <Text style={{ fontFamily: "ManropeBold" }}>{new Date(bestDay['Date & Time']).toLocaleString()}</Text></Text>
               <Text style={styles.aqiTxt}>AQI: {bestDay.AQI}</Text>
             </View>
             <View style={styles.dyVi}>
-              <Text style={styles.DayText}>Worst Day: <Text style={{fontFamily: "ManropeBold"}}>{new Date(worstDay['Date & Time']).toLocaleString()}</Text></Text>
+              <Text style={styles.DayText}>Worst Day: <Text style={{ fontFamily: "ManropeBold" }}>{new Date(worstDay['Date & Time']).toLocaleString()}</Text></Text>
               <Text style={styles.aqiTxt}>AQI: {worstDay.AQI}</Text>
             </View>
           </View>
         )}
         <View style={styles.htMp}>
-          <View style={{flexDirection: "row"}}>
+          <View style={{ flexDirection: "row" }}>
             <Text style={styles.heatTxt}>Heat Map for {selectedMonth}</Text>
             <TouchableOpacity onPress={openInfoModal}>
               <Text style={styles.infoIcon}>info</Text>
             </TouchableOpacity>
           </View>
           {filteredData.length > 0 ? (
-            <AQIHeatmap filteredData={filteredData} handleDotPress={handleDotPress} style={styles.heatMap}/>
+            <AQIHeatmap filteredData={filteredData} handleDotPress={handleDotPress} style={styles.heatMap} />
           ) : (
             <Text style={styles.noDataText}>No data available for the selected month</Text>
           )}
@@ -303,12 +304,12 @@ const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', 
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
   modalContainer: {
     margin: 20,
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: 10,
     width: '80%',
     alignSelf: 'center',
@@ -362,7 +363,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     color: "#B22D30",
     padding: 4,
-  }, 
+  },
   htMp: {
     backgroundColor: 'white',
     padding: 20,
@@ -380,12 +381,12 @@ const styles = StyleSheet.create({
   infoModalBackground: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)', 
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
   infoModalContainer: {
     margin: 20,
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)', 
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: 10,
     width: '80%',
     alignSelf: 'center',
@@ -417,7 +418,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  
+
 });
 
 const pickerSelectStyles = {

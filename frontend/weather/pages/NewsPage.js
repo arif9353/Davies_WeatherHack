@@ -3,6 +3,7 @@ import { View, ActivityIndicator, StyleSheet, ImageBackground } from 'react-nati
 import News from '../components/News'; // Adjust the path as needed
 import Header from '../components/Header';
 import BottomNavBar from '../components/BottomNav'; // Adjust the path as needed
+import IP from './IP_Address';
 
 const NewsPage = ({ navigation }) => {
     const [news, setNews] = useState([]);
@@ -11,7 +12,7 @@ const NewsPage = ({ navigation }) => {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch('http://192.168.0.148:8000/aqi_news');
+                const response = await fetch(`${IP}/aqi_news`);
                 const json = await response.json();
                 if (json.success) {
                     setNews(json.message);

@@ -5,17 +5,18 @@ import ParamEffects from '../components/ParamEffects';
 import LineChart from '../components/LineChart';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import WeatherDetails from '../components/WeatherDetails';
+import IP from './IP_Address';
 
-const DetailsPage = ({navigation}) => {
+const DetailsPage = ({ navigation }) => {
     const [pollutants, setPollutants] = useState(null);
     const [aqiData, setAqiData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [aqiVal, setAqiVal] = useState(0);
 
-    const viewMore = async() => {
-        try{
+    const viewMore = async () => {
+        try {
             navigation.navigate("Trend");
-        } catch(error) {
+        } catch (error) {
             console.error("Error navigation>>>", error);
         }
     }
@@ -34,7 +35,7 @@ const DetailsPage = ({navigation}) => {
     // Fetch AQI data from backend API
     const fetchAqiData = async () => {
         try {
-            const response = await fetch('http://192.168.0.148:8000/future_values'); // Replace with your actual API
+            const response = await fetch(`${IP}/future_values`); // Replace with your actual API
             const json = await response.json();
             if (json.success) {
                 setAqiData(json.message);
@@ -76,8 +77,8 @@ const DetailsPage = ({navigation}) => {
     }
 
     return (
-        <ImageBackground 
-            source={require("../assets/bg.png")}                
+        <ImageBackground
+            source={require("../assets/bg.png")}
             style={styles.backgroundImage}
         >
             <ScrollView style={styles.container}>
@@ -96,7 +97,7 @@ const DetailsPage = ({navigation}) => {
                 </TouchableOpacity>
             </ScrollView>
         </ImageBackground>
-        
+
     );
 };
 

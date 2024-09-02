@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomNavBar from '../components/BottomNav';
 import FutureVal from '../components/FutureVal';
 import Pollutants from '../components/Pollutants';
+import IP from './IP_Address';
 
 const LandingPage = ({ navigation }) => {
     const [data, setData] = useState(null);
@@ -17,7 +18,7 @@ const LandingPage = ({ navigation }) => {
     // Function to fetch data from backend
     const fetchData = async () => {
         try {
-            const response = await fetch('http://192.168.0.148:8000/weather_and_aqi');
+            const response = await fetch(`${IP}/weather_and_aqi`);
             const json = await response.json();
             if (json.success) {
                 setData(json.message);
@@ -53,8 +54,8 @@ const LandingPage = ({ navigation }) => {
         }
     };
 
-    const toDetails = async() => {
-        try{
+    const toDetails = async () => {
+        try {
             console.log("Function to navigate");
             navigation.navigate("DetailsPage");
         } catch (error) {
@@ -77,37 +78,37 @@ const LandingPage = ({ navigation }) => {
     }
 
     return (
-        
-            <ImageBackground source={require("../assets/bg.png")} style={styles.backgroundImage}>
-                <Header location="Navi Mumbai, Sector 19A" navigation={navigation} style={styles.header}/>
-                {data && (
-                    <View style={styles.main}>
-                        {/* AQI Info */}
-                        <AQIInfo aqi={data.aqi} remark={data.remark} location="Navi Mumbai, Sector 19A" res={data.pollutant_res} navigation={navigation}/>
-                        {/* Weather Details */}
-                        <WeatherDetails
-                            precipitation={data.precipitation}
-                            temperature={data.temp}
-                            humidity={data.humidity}
-                            wind={data.wind}
-                        />
-                        {/* <Text style={styles.locationText}>{data.location}Navi Mumbai</Text> */}
-                    </View>
 
-                )}
-                <View style={styles.container}>
-                    {/* Recommendations */}
-                    <Text style={styles.titleBar}>Pollutants</Text>
-                    {data && <Pollutants pollutants={data.pollutants} />}
-                    <Text style={styles.titleBar}>Future Forecast</Text>
-                    {data && <FutureVal future={future} />}
-                    {/* {data && <Recommendations recommendations={data.recommendation} />} */}
+        <ImageBackground source={require("../assets/bg.png")} style={styles.backgroundImage}>
+            <Header location="Navi Mumbai, Sector 19A" navigation={navigation} style={styles.header} />
+            {data && (
+                <View style={styles.main}>
+                    {/* AQI Info */}
+                    <AQIInfo aqi={data.aqi} remark={data.remark} location="Navi Mumbai, Sector 19A" res={data.pollutant_res} navigation={navigation} />
+                    {/* Weather Details */}
+                    <WeatherDetails
+                        precipitation={data.precipitation}
+                        temperature={data.temp}
+                        humidity={data.humidity}
+                        wind={data.wind}
+                    />
+                    {/* <Text style={styles.locationText}>{data.location}Navi Mumbai</Text> */}
                 </View>
 
-                {/* Load the BottomNavBar component */}
-                <BottomNavBar navigation={navigation} />
-            </ImageBackground>
-        
+            )}
+            <View style={styles.container}>
+                {/* Recommendations */}
+                <Text style={styles.titleBar}>Pollutants</Text>
+                {data && <Pollutants pollutants={data.pollutants} />}
+                <Text style={styles.titleBar}>Future Forecast</Text>
+                {data && <FutureVal future={future} />}
+                {/* {data && <Recommendations recommendations={data.recommendation} />} */}
+            </View>
+
+            {/* Load the BottomNavBar component */}
+            <BottomNavBar navigation={navigation} />
+        </ImageBackground>
+
     );
 };
 
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
         // backgroundColor: 'rgba(20, 20, 20, 0.86)',
         backgroundColor: "white",
         borderTopLeftRadius: 32,
-        borderTopRightRadius: 32, 
+        borderTopRightRadius: 32,
         paddingTop: 32
     },
     main: {
