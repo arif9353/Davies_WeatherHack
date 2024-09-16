@@ -1,0 +1,3 @@
+indoor : https://blogcontent.site/projects/indooraqi.php
+forecast : https://blogcontent.site/projects/aqiforecast.php
+realtime: https://blogcontent.site/projects/aqinew.php

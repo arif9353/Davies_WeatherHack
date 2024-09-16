@@ -19,14 +19,18 @@ const BottomNavBar = ({ navigation }) => {
   return (
     <View style={styles.navBar}>
       <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('LandingPage')}>
+        <Ionicons name="cloud-outline" size={24} color="#b22d30" />
+        <Text style={styles.navText}>outdoor</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Indoor')}>
         <Ionicons name="home-outline" size={24} color="#b22d30" />
-        <Text style={styles.navText}>home</Text>
+        <Text style={styles.navText}>indoor</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('News')}>
         <Ionicons name="newspaper-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>news</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Ideas')}>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Recommend')}>
         <Ionicons name="bulb-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>ideas</Text>
       </TouchableOpacity>

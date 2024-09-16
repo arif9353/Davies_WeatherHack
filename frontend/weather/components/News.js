@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
     newsItem: {
         marginBottom: 15,
         padding: 15,
-        backgroundColor: '#B22D30', // Matching the theme color
+        backgroundColor: '#fff', // Matching the theme color
         borderRadius: 10,
     },
     newsTitle: {
         fontSize: 18,
-        color: '#fff',
-        fontFamily: "ManropeReg"
+        color: '#B22D30',
+        fontFamily: "ManropeExtraB"
     },
     noDataText: {
         color: '#B22D30',

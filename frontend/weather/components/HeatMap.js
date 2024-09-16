@@ -10,12 +10,13 @@ const AQIHeatmap = ({ filteredData, handleDotPress }) => {
       {filteredData.map((item, index) => {
         const aqi = item.AQI;
         const backgroundColor =
-          aqi <= 250 ? '#004d00' : // Dark green
-          aqi <= 300 ? '#008000' : // Darker green
-          aqi <= 370 ? '#ccaa00' : // Dark yellow
-          aqi <= 450 ? '#cc5500' : // Dark orange
-          aqi <= 500 ? '#b30000' : // Dark red
-          '#660000'; // Darker red
+          aqi <= 50  ? '#00b050' : // Green (Good)
+          aqi <= 100 ? '#92d050' : // Light Green (Satisfactory)
+          aqi <= 200 ? '#ffff00' : // Yellow (Moderate)
+          aqi <= 300 ? '#ff9900' : // Orange (Poor)
+          aqi <= 400 ? '#ff0000' : // Red (Very Poor)
+          aqi <= 500 ? '#990000' : // Dark Red (Severe)
+          '#660000';               // Extremely high (beyond AQI range)
 
         return (
           <TouchableOpacity

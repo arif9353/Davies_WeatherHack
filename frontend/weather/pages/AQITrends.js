@@ -3,9 +3,10 @@ import { View, Text, Modal, TouchableOpacity, StyleSheet, ScrollView, Dimensions
 import { LineChart } from 'react-native-chart-kit';
 import RNPickerSelect from 'react-native-picker-select';
 import AQIHeatmap from '../components/HeatMap';
-import Header from '../components/Header'; // Import the Header component
-import BottomNavBar from '../components/BottomNav'; // Import the BottomNavBar component
+import Header from '../components/Header';
+import BottomNavBar from '../components/BottomNav';
 import * as Font from "expo-font";
+import * as Animatable from 'react-native-animatable'; // Import Animatable for animations
 import IP from './IP_Address';
 
 const AQITrendsPage = ({ navigation }) => {
@@ -85,80 +86,70 @@ const AQITrendsPage = ({ navigation }) => {
     setInfoModalVisible(false);
   };
 
-
   return (
     <ImageBackground
       source={require("../assets/bg.png")}
       style={styles.backgroundImage}
     >
       {/* Header Component */}
-      <Header location="Navi Mumbai, Sector 19A" navigation={navigation} />
+      <Animatable.View animation="fadeInDown" delay={200} duration={1500}>
+        <Header location="Navi Mumbai, Sector 19A" navigation={navigation} />
+      </Animatable.View>
 
       {/* Scrollable Content */}
       <ScrollView style={styles.container}>
         <View style={styles.pickerContainer}>
-          <RNPickerSelect
-            onValueChange={(value) => setSelectedMonth(value)}
-            items={[
-              { label: 'November', value: 'Nov' },
-              { label: 'December', value: 'Dec' },
-              { label: 'January', value: 'Jan' },
-              { label: 'February', value: 'Feb' },
-              { label: 'March', value: 'Mar' },
-            ]}
-            value={selectedMonth}
-            style={pickerSelectStyles} // Custom styles for the picker
-          />
-          <Text style={styles.pickerText}>Choose the Month</Text>
+          <Animatable.View animation="fadeInLeft" delay={300} duration={1200}>
+            <RNPickerSelect
+              onValueChange={(value) => setSelectedMonth(value)}
+              items={[
+                { label: 'November', value: 'Nov' },
+                { label: 'December', value: 'Dec' },
+                { label: 'January', value: 'Jan' },
+                { label: 'February', value: 'Feb' },
+                { label: 'March', value: 'Mar' },
+              ]}
+              value={selectedMonth}
+              style={pickerSelectStyles}
+            />
+            <Text style={styles.pickerText}>Choose the Month</Text>
+          </Animatable.View>
         </View>
 
         {filteredData.length > 0 ? (
-          <View style={{ marginVertical: 20 }}>
+          <Animatable.View animation="fadeInUp" delay={400} duration={1500} style={{ marginVertical: 20 }}>
             {/* Y-Axis Label */}
             <Text style={styles.yAxisLabel}>AQI</Text>
 
             <LineChart
               data={{
-                labels: labels, // Labels for the X-axis
+                labels: labels,
                 datasets: [
                   {
                     data: filteredData.map(item => item.AQI),
-                    color: (opacity = 1) => `rgba(178, 45, 48, ${opacity})`, // Line color matching theme
+                    color: (opacity = 1) => `rgba(178, 45, 48, ${opacity})`,
                   },
                   {
                     data: movingAverage,
-                    color: (opacity = 1) => `rgba(255, 200, 200, ${opacity})`, // Moving average line color
+                    color: (opacity = 1) => `rgba(255, 200, 200, ${opacity})`,
                   },
                 ],
               }}
-              width={Dimensions.get('window').width - 40} // Width of the chart
-              height={280} // Height of the chart
-              yAxisSuffix="" // Suffix for the Y-axis values
+              width={Dimensions.get('window').width - 40}
+              height={280}
+              yAxisSuffix=""
               chartConfig={{
                 backgroundColor: 'transparent',
                 backgroundGradientFrom: 'transparent',
                 backgroundGradientTo: 'transparent',
                 backgroundGradientFromOpacity: 0,
                 backgroundGradientToOpacity: 0,
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // Color for labels and lines
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 decimalPlaces: 0,
                 propsForBackgroundLines: {
-                  stroke: 0, // Light grid lines
+                  stroke: 0,
                 },
-                renderDotContent: ({ x, y, index, indexData }) => (
-                  <Text
-                    key={index}
-                    x={x}
-                    y={y - 10} // Adjusting position to appear above the dot
-                    fill="white"
-                    fontSize="12"
-                    fontWeight="bold"
-                    textAnchor="middle"
-                  >
-                    {indexData.toString()} {/* Displaying the AQI value as a label */}
-                  </Text>
-                ),
               }}
               bezier
               style={{
@@ -168,16 +159,16 @@ const AQITrendsPage = ({ navigation }) => {
               }}
               onDataPointClick={(dataPoint) => handleDotPress(filteredData[dataPoint.index])}
             />
-
-            {/* X-Axis Label */}
             <Text style={styles.xAxisLabel}>Days of Month</Text>
-          </View>
+          </Animatable.View>
         ) : (
-          <Text style={styles.noDataText}>No data available for the selected month</Text>
+          <Animatable.Text animation="fadeIn" delay={200} style={styles.noDataText}>
+            No data available for the selected month
+          </Animatable.Text>
         )}
 
         {bestDay && worstDay && (
-          <View style={styles.bestWorst}>
+          <Animatable.View animation="zoomIn" delay={500} duration={1500} style={styles.bestWorst}>
             <View style={styles.dyVi}>
               <Text style={styles.DayText}>Best Day: <Text style={{ fontFamily: "ManropeBold" }}>{new Date(bestDay['Date & Time']).toLocaleString()}</Text></Text>
               <Text style={styles.aqiTxt}>AQI: {bestDay.AQI}</Text>
@@ -186,9 +177,10 @@ const AQITrendsPage = ({ navigation }) => {
               <Text style={styles.DayText}>Worst Day: <Text style={{ fontFamily: "ManropeBold" }}>{new Date(worstDay['Date & Time']).toLocaleString()}</Text></Text>
               <Text style={styles.aqiTxt}>AQI: {worstDay.AQI}</Text>
             </View>
-          </View>
+          </Animatable.View>
         )}
-        <View style={styles.htMp}>
+
+        <Animatable.View animation="fadeInUp" delay={600} style={styles.htMp}>
           <View style={{ flexDirection: "row" }}>
             <Text style={styles.heatTxt}>Heat Map for {selectedMonth}</Text>
             <TouchableOpacity onPress={openInfoModal}>
@@ -200,7 +192,7 @@ const AQITrendsPage = ({ navigation }) => {
           ) : (
             <Text style={styles.noDataText}>No data available for the selected month</Text>
           )}
-        </View>
+        </Animatable.View>
 
         <Modal
           visible={modalVisible}
@@ -211,7 +203,7 @@ const AQITrendsPage = ({ navigation }) => {
           <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
             <View style={styles.modalBackground}>
               <TouchableWithoutFeedback>
-                <View style={styles.modalContainer}>
+                <Animatable.View animation="zoomIn" style={styles.modalContainer}>
                   {selectedData && (
                     <>
                       <Text style={styles.modalText}>Date: {new Date(selectedData['Date & Time']).toLocaleString()}</Text>
@@ -222,18 +214,19 @@ const AQITrendsPage = ({ navigation }) => {
                   <TouchableOpacity onPress={() => setModalVisible(false)}>
                     <Text style={styles.modalCloseButton}>Close</Text>
                   </TouchableOpacity>
-                </View>
+                </Animatable.View>
               </TouchableWithoutFeedback>
             </View>
           </TouchableWithoutFeedback>
         </Modal>
+
         <Modal
           visible={infoModalVisible}
           transparent={true}
           animationType="fade"
           onRequestClose={closeInfoModal}
         >
-          <View style={styles.infoModalBackground}>
+          <Animatable.View animation="fadeInUp" style={styles.infoModalBackground}>
             <View style={styles.infoModalContainer}>
               <Text style={styles.infoModalTitle}>Understanding the Heat Map</Text>
               <Text style={styles.infoModalText}>
@@ -251,12 +244,11 @@ const AQITrendsPage = ({ navigation }) => {
                 <Text style={styles.infoModalCloseButton}>Close</Text>
               </TouchableOpacity>
             </View>
-          </View>
+          </Animatable.View>
         </Modal>
 
       </ScrollView>
 
-      {/* BottomNavBar Component */}
       <BottomNavBar navigation={navigation} />
     </ImageBackground>
   );

@@ -1,7 +1,6 @@
 import requests
 import dotenv
 
-
 aqi_categories = [
     (0, 50, "Good", "Minimal impact"),
     (51, 100, "Satisfactory", "Minor breathing discomfort to sensitive people"),
@@ -17,7 +16,8 @@ breakpoints = {
     'SO2': [(0, 40, 0, 50), (41, 80, 51, 100), (81, 380, 101, 200), (381, 800, 201, 300), (801, 1600, 301, 400), (1601, 2100, 401, 500)],
     'CO': [(0, 1, 0, 50), (1.1, 2, 51, 100), (2.1, 10, 101, 200), (10.1, 17, 201, 300), (17.1, 34, 301, 400), (34.1, 50, 401, 500)],
     'O3': [(0, 50, 0, 50), (51, 100, 51, 100), (101, 168, 101, 200), (169, 208, 201, 300), (209, 748, 301, 400), (749, 1000, 401, 500)],
-    'NH3': [(0, 200, 0, 50), (201, 400, 51, 100), (401, 800, 101, 200), (801, 1200, 201, 300), (1201, 1800, 301, 400), (1801, 2000, 401, 500)]
+    'NH3': [(0, 200, 0, 50), (201, 400, 51, 100), (401, 800, 101, 200), (801, 1200, 201, 300), (1201, 1800, 301, 400), (1801, 2000, 401, 500)],
+    # 'NO' : [(0, 40, 0, 50), (41, 80, 51, 100), (81, 180, 101, 200), (181, 280, 201, 300), (281, 400, 301, 400), (401, 1000, 401, 500)]
 }
 
 breakpoints_future = {
@@ -43,48 +43,88 @@ def get_aqi_cat(aqi):
 
 def ret():
     try:
-        # endpoint = "https://dailynewsro.site/aqi.php"
         endpoint = "https://blogcontent.site/projects/aqinew.php"
-        # "PM10": "53",
-        # "O3": "2",
-        # "NO2": "5",
-        # "SO2": "1",
-        # "CO": "7",
-        # endpoint = "https://api.openweathermap.org/data/2.5/air_pollution?lat=19.044410906938865&lon=73.0256562419681&appid=412e801910c9ce059ea8c3e6d9d0bcb6"
         respo = requests.get(endpoint).json()
-        print(respo)
-        # print(type(respo))
-        # respo["list"][0]["components"]["co"] = round(respo["list"][0]["components"]["co"] / 1000, 2)
+        # print(respo)
         data = {}
-        # data["PM2.5"] = respo["list"][0]["components"]["pm2_5"]
-        # data["NH3"] = respo["list"][0]["components"]["nh3"]
-        # data["PM10"] = respo["list"][0]["components"]["pm10"]
-        # data["NO2"] = respo["list"][0]["components"]["no2"]
-        # data["O3"] = respo["list"][0]["components"]["o3"]
-        # data["SO2"] = respo["list"][0]["components"]["so2"]
-        # data["CO"] = respo["list"][0]["components"]["co"]
         data["PM10"] = int(float(respo["calulated_values"]["PM10"]))
         data["NO2"] = int(float(respo["calulated_values"]["O3"]))
         data["O3"] = int(float(respo["calulated_values"]["NO2"]))
         data["SO2"] = int(float(respo["calulated_values"]["SO2"]))
         data["NH3"] = 0
+        # data["NO"] = 0
         data["PM2.5"] = int(float(respo["calulated_values"]["PM2.5"]))
         data["CO"] = int(round(float(respo["calulated_values"]["CO"]) / 1000, 2))
-        print(f"\nType: {type(data["CO"])}")
-        # data["CO"] = round(respo["calulated_values"]["CO"] / 1000, 2)
-        print(f"\n\nData: \n{data}")
         aqi_val = {pollutant: calculate_aqi(concentration, breakpoints[pollutant]) for pollutant, concentration in data.items()}
-        print(aqi_val)
+        print(f"\n\nret/aqi_val: {aqi_val}")
         overall_aqi = max(aqi_val.values())
-        print(overall_aqi)
+        # print(overall_aqi)
         remark, health_impact = get_aqi_cat(overall_aqi)
-        print(f"Remark: {remark}\n Impact: {health_impact}")
+        # print(f"Remark: {remark}\n Impact: {health_impact}")
         pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
-        return {"pollutants": aqi_val, "aqi": overall_aqi, "remark": remark, "impact": health_impact, "pollutant_res": pollutant_res}
+        return {"pollutants": data, "aqi": round(overall_aqi, 0), "remark": remark, "impact": health_impact, "pollutant_res": pollutant_res}
     except Exception as e:
         print(f"Exception in api_cal's ret method: {e}")
         return (e)
     
+
+
+def calculate_multiple_aqi(input_data):
+    try:
+        # List to store AQI results for each set
+        aqi_results = []
+
+        # Get the number of sets (assuming all pollutant lists have the same length)
+        num_sets = len(input_data['PM10'])
+
+        print(f"aqi_cal/Num_sets: {num_sets}")
+
+        # Iterate through each set of pollutants (by index)
+        for i in range(num_sets):
+            # Get the i-th concentration for each pollutant
+            pollutants_set = {
+                "PM10": input_data["PM10"][i],
+                "PM2.5": input_data["PM2.5"][i],
+                "SO2": input_data["SO2"][i],
+                "NO2": input_data["NO2"][i],
+                "CO": input_data["CO"][i],
+                "O3": input_data["O3"][i],
+            }
+
+            print(f"aqi_cal/pollutants set: {pollutants_set}")
+
+            # Calculate AQI for each pollutant in the current set, handling None cases
+            aqi_val = {}
+            for pollutant, concentration in pollutants_set.items():
+                aqi_val[pollutant] = calculate_aqi(concentration, breakpoints[pollutant])
+                
+                # If AQI is None, assign a default low AQI value, or skip
+                if aqi_val[pollutant] is None:
+                    print(f"Warning: AQI calculation returned None for pollutant: {pollutant}")
+                    aqi_val[pollutant] = 0  # You can change this to a suitable default
+
+            # Find the overall AQI (the max of individual AQI values)
+            overall_aqi = max(aqi_val.values())
+
+            # Get the remark and health impact based on the overall AQI
+            remark, health_impact = get_aqi_cat(overall_aqi)
+
+            # Find the pollutant responsible for the highest AQI
+            pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
+
+            # Store the result for this set
+            aqi_results.append({
+                "aqi": overall_aqi,
+                "pollutant_res": pollutant_res
+            })
+
+        return aqi_results
+
+    except Exception as e:
+        print(f"Exception in calculate_multiple_aqi: {e}")
+        return []
+    
+
 def ret_future(pm2_5, pm10, no2, co, so2, time):
     try:
         data = {
@@ -98,11 +138,9 @@ def ret_future(pm2_5, pm10, no2, co, so2, time):
         for pollutant, concentration in data.items():
             if pollutant in ['PM2.5', 'PM10', 'NO2', 'CO', 'SO2']:
                 aqi_val[f'{pollutant}'] = calculate_aqi(concentration, breakpoints_future[pollutant])
-
         overall_aqi = max(aqi_val.values())
         remark, health_impact = get_aqi_cat(overall_aqi)
         pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
-
         return {
             "aqi": overall_aqi,
             "remark": remark,
@@ -110,7 +148,6 @@ def ret_future(pm2_5, pm10, no2, co, so2, time):
             "pollutant_res": pollutant_res,
             "time" : time
         }
-
     except Exception as e:
         print(f"Exception in ret method: {e}")
         return str(e)

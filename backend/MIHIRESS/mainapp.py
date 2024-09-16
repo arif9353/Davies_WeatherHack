@@ -6,12 +6,16 @@ import requests
 from dotenv import load_dotenv
 import os
 from bs4 import BeautifulSoup
+import json
 
-from aqi_cal import get_aqi_cat, calculate_aqi, ret, ret_future
+from aqi_cal import get_aqi_cat, calculate_aqi, ret, calculate_multiple_aqi, ret_future
 from climate_fetch import base_ret
 from forecast import forecast_aqi
 from recommendation import recommend
 from trend_analysis import fetch_trend_data
+from future_forecast import forecast_aqi_for_8_hours, load_and_forecast
+from recommendations import outdoor, indoor
+from indoor import indoor_aqi
 
 app = FastAPI()
 
@@ -63,6 +67,36 @@ async def future_prediction():
         print(f"Error: {e}")
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
     
+# @app.get('/forecast_aqi')
+# async def get_forecasted_aqi():
+#     try:
+#         # Call the function to get the forecasted AQI values
+#         forecast_aqi = forecast_aqi_for_8_hours()
+#         # Return the forecasted AQI values as a nested JSON
+#         return JSONResponse(content={"message": forecast_aqi, "success": True}, status_code=200)
+    
+#     except Exception as e:
+#         print(f"Error: {e}")
+#         return JSONResponse(content={"message": str(e), "success": False}, status_code=500)
+
+
+@app.get('/forecast_aqi')
+async def get_forecasted_aqi():
+    try:
+        forecasts = load_and_forecast()
+        # forecasts = forecasts.to_json(orient='records') 
+        for ele in forecasts:
+            forecasts[ele] = forecasts[ele].tolist()
+        forecasts = json.dumps(forecasts)        
+        print(f"\n\nForecast_aqi/current_val: {type(forecasts)}")
+        forecasts = forecasts.replace('\\"', '"')
+        forecasts = json.loads(forecasts)
+        aqis = calculate_multiple_aqi(forecasts)
+        print(f"AQIsss: {aqis}")
+        return JSONResponse(content={"message": aqis, "success": True}, status_code=200)
+    except Exception as e:
+        print(f"Error: {e}")
+        return JSONResponse(content={"message": str(e), "success": False}, status_code=500)
 
 @app.get('/trend_analysis')
 async def fetch_trend():
@@ -99,3 +133,40 @@ async def get_aqi_news():
     except Exception as e:
         print(f"Error: {e}")
         return JSONResponse(content={"message": str(e), "success": False}, status_code=500)
+
+
+
+@app.get('/outdoor_recommendations')
+async def outdoor_recom():
+    try:
+        answer = ret()
+        climate = base_ret()
+        answer["temp"] = climate["temp"]
+        answer["humidity"] = climate["humidity"]
+        answer["wind"] = climate["wind"]
+        answer["precipitation"] = climate["precipitation"]
+        respo = outdoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"])
+        print(respo)
+        return JSONResponse(content={"message": respo, "success": True}, status_code=200)
+    except Exception as e:
+        return JSONResponse(content={"message": e, "success": False}, status_code=500)
+
+
+@app.get('/indoor')
+async def indoor_recom():
+    try:
+        endpoint = "https://blogcontent.site/projects/indooraqi.php"
+        respo = requests.get(endpoint).json()
+        answer = {}
+        answer["aqi"], answer["pollutant_res"] = indoor_aqi(int(respo["pm2p5"]), int(respo["pm10"]))
+        climate = base_ret()
+        answer["temp"] = climate["temp"]
+        answer["humidity"] = climate["humidity"]
+        answer["wind"] = climate["wind"]
+        answer["precipitation"] = climate["precipitation"]
+        respo = indoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"])
+        print(respo)
+        return JSONResponse(content={"message": answer, "future": respo, "success": True}, status_code=200)
+    except Exception as e:
+        return JSONResponse(content={"message": e, "success": False}, status_code=500)
+    

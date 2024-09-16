@@ -18,23 +18,37 @@ const LandingPage = ({ navigation }) => {
     // Function to fetch data from backend
     const fetchData = async () => {
         try {
+            // Fetch the weather and AQI data
             const response = await fetch(`${IP}/weather_and_aqi`);
             const json = await response.json();
             if (json.success) {
-                setData(json.message);
-                setFuture(json.future);
-                console.log("Data>>>>>", data);
+                setData(json.message); // Setting message data
+                console.log("Weather and AQI Data:", json.message);
+    
+                // Store pollutants and AQI as needed
                 storePollutants(json.message.pollutants);
-                storeAQI(json.message.aqi) // Store pollutants in local storage
+                storeAQI(json.message.aqi); 
             } else {
-                console.error('Failed to fetch data');
+                console.error('Failed to fetch weather and AQI data');
             }
+    
+            // Fetch the forecast AQI data
+            const response_b = await fetch(`${IP}/forecast_aqi`);
+            const json_b = await response_b.json();
+            if (json_b.success) {
+                setFuture(json_b.message); // Set forecast data correctly
+                console.log("Forecast Data:", json_b.message);
+            } else {
+                console.error('Failed to fetch forecast AQI data');
+            }
+    
         } catch (error) {
             console.error('Error fetching data:', error);
         } finally {
-            setLoading(false);
+            setLoading(false); // Set loading to false after all fetch calls
         }
     };
+    
 
     // Function to store pollutants in local storage
     const storePollutants = async (pollutants) => {
