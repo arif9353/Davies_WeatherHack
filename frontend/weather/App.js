@@ -7,6 +7,7 @@ import AQITrendsPage from './pages/AQITrends';
 import NewsPage from './pages/NewsPage';
 import RecommendationsPage from './pages/RecommendationsPage';
 import Indoor from './pages/IndoorPage';
+import ChatScreen from './pages/Chatbot';
 
 const Stack = createStackNavigator();
 
@@ -42,6 +43,11 @@ const App = () => {
         <Stack.Screen
           name="Indoor"
           component={Indoor}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Chatbot"
+          component={ChatScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

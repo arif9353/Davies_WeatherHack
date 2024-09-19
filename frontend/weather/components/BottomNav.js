@@ -5,16 +5,16 @@ import * as Font from "expo-font";
 
 const BottomNavBar = ({ navigation }) => {
 
-    const [fontsLoaded] = Font.useFonts({
-        ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"), 
-        ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"), 
-        ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"), 
-        ManropeLight: require("../assets/fonts/Manrope-Light.ttf"), 
-        ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"), 
-        ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"), 
-        ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"), 
-        Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"), 
-    });
+  const [fontsLoaded] = Font.useFonts({
+    ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"),
+    ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"),
+    ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"),
+    ManropeLight: require("../assets/fonts/Manrope-Light.ttf"),
+    ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"),
+    ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"),
+    ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"),
+    Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"),
+  });
 
   return (
     <View style={styles.navBar}>
@@ -37,6 +37,10 @@ const BottomNavBar = ({ navigation }) => {
       <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Trend')}>
         <Ionicons name="pie-chart-outline" size={24} color="#b22d30" />
         <Text style={styles.navText}>insights</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Chatbot')}>
+        <Ionicons name="chatbox-outline" size={24} color="#b22d30" />
+        <Text style={styles.navText}>bot</Text>
       </TouchableOpacity>
     </View>
   );
