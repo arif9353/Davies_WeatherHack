@@ -1,2 +1,2 @@
-const IP = "http://192.168.0.148:8000";
+const IP = "https://davb2-production-3bf4.up.railway.app";
 export default IP; 

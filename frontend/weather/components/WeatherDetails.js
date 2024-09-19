@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
         fontFamily: "Manrope-Regular",
     },
     timeText: {
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         fontSize: 24,
         fontFamily: "JuliusSansOne-Regular",
         color: '#fff',

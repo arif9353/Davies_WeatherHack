@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         paddingTop: 32
     },
     main: {
-        marginTop: 40
+        // marginTop: 40
     },
     backgroundImage: {
         width: '100%',

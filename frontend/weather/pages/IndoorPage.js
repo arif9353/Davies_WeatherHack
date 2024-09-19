@@ -92,10 +92,10 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 32,
         paddingTop: 20,
         paddingHorizontal: 20,
-        marginTop: 20,
+        // marginTop: 20,
     },
     main: {
-        marginTop: 40
+        // marginTop: 40
     },
     backgroundImage: {
         width: '100%',

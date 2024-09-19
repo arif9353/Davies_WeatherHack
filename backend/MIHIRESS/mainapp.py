@@ -38,15 +38,15 @@ async def get_aqi_and_climate_data():
         answer["humidity"] = climate["humidity"]
         answer["wind"] = climate["wind"]
         answer["precipitation"] = climate["precipitation"]
-        answer["recommendation"] = recommend()
+        # answer["recommendation"] = recommend()
         print(f"AQI Val: {answer['pollutants']}\nOverall AQI: {answer['aqi']}\nPollutant Responsible: {answer['pollutant_res']}\nRemark: {answer['remark']}\nImpact: {answer['impact']}")
-        model_address = "../ARIF/AQI_Weather_Data.csv"
-        future_df = forecast_aqi(model_address)
-        future_df["AQI_CO"] /= 1000
-        future = []
-        for row in future_df.iterrows():
-            future.append(ret_future(row[1]["AQI_PM2.5"], row[1]["AQI_PM10"], row[1]["AQI_NO2"], row[1]["AQI_CO"], row[1]["AQI_SO2"], (row[0].time()).hour))
-        return JSONResponse(content={"message": answer, "future": future, "success": True}, status_code=200)
+        # model_address = "../ARIF/AQI_Weather_Data.csv"
+        # future_df = forecast_aqi(model_address)
+        # future_df["AQI_CO"] /= 1000
+        # future = []
+        # for row in future_df.iterrows():
+        #     future.append(ret_future(row[1]["AQI_PM2.5"], row[1]["AQI_PM10"], row[1]["AQI_NO2"], row[1]["AQI_CO"], row[1]["AQI_SO2"], (row[0].time()).hour))
+        return JSONResponse(content={"message": answer, "success": True}, status_code=200)
     except Exception as e:
         print(f"Error is {e}")
         return JSONResponse(content={"message": f"Error: {str(e)}", "success": False}, status_code=500)
@@ -114,7 +114,7 @@ async def fetch_trend():
 async def get_aqi_news():
     try:
         # Use a more specific query to focus on AQI-related news
-        query = '("Air Quality Index" OR "AQI" OR "air pollution" OR "air quality")'
+        query = '("Air Quality Index of India" OR "AQI of India" OR "air pollution in India" OR "air quality in India" OR "Air Quality Index" OR "AQI" OR "air pollution" OR "air quality" OR "Air Quality Index of Mumbai" OR "AQI of Mumbai" OR "air pollution in Mumbai" OR "air quality in Mumbai")'
         url = f'https://newsapi.org/v2/everything?q={query}&language=en&apiKey={api_key}&pageSize=20'
         response = requests.get(url)
         response.raise_for_status()  # Check if the request was successful
