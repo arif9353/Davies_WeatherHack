@@ -16,6 +16,7 @@ from trend_analysis import fetch_trend_data
 from future_forecast import forecast_aqi_for_8_hours, load_and_forecast
 from recommendations import outdoor, indoor
 from indoor import indoor_aqi
+from chat_fin import outputfn
 
 app = FastAPI()
 
@@ -26,6 +27,7 @@ app = FastAPI()
 #     allow_methods=["*"],
 #     allow_header=["*"],
 # )
+load_dotenv()
 
 api_key = os.getenv("NEWS_API_KEY")
 
@@ -170,3 +172,17 @@ async def indoor_recom():
     except Exception as e:
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
     
+@app.post('/chattext')
+async def chattext(request:Request):
+    try:
+        # text = await request.json()
+        translate_text = None
+        reponse = await request.json()
+        translate_text = reponse["message"]
+        print("\n\n")
+        print(translate_text)
+        result = await outputfn(translate_text)
+        return JSONResponse(content={"message":result, "success":True}, status_code=200)
+    except Exception as e:
+        print(str(e))
+        return JSONResponse(content={"message":"Failure ho gaya", "success":False}, status_code=500)
