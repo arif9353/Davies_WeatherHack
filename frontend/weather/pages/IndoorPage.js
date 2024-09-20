@@ -6,6 +6,7 @@ import AQIInfo from '../components/AQIInfo';
 import Recommendations from '../components/Recommendations';
 import BottomNavBar from '../components/BottomNav';
 import IP from './IP_Address';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Indoor = ({ navigation }) => {
     const [data, setData] = useState(null);
@@ -15,15 +16,39 @@ const Indoor = ({ navigation }) => {
     // Function to fetch data from the backend
     const fetchData = async () => {
         try {
-            // Fetch the weather and AQI data
-            const response = await fetch(`${IP}/indoor`);
-            const json = await response.json();
-            if (json.success) {
-                setData(json.message); // Set weather and AQI data
-                setRecommendations(json.future.recommendations); // Set recommendations from the future key
-                console.log("Weather and AQI Data:", json.message);
-            } else {
-                console.error('Failed to fetch weather and AQI data');
+            // Fetch values from AsyncStorage
+            const futureforecastAQI = await AsyncStorage.getItem('futureAQI');
+            const userDetails = await AsyncStorage.getItem('userdetails');
+
+            // Parse the stored values as JSON
+            const parsedFutureAQI = JSON.parse(futureforecastAQI);
+            const parsedUserDetails = JSON.parse(userDetails);
+
+            // Ensure parsedFutureAQI is an array before mapping
+            if (Array.isArray(parsedFutureAQI)) {
+                const aqiValues = parsedFutureAQI.map(entry => entry.aqi);
+                const response = await fetch(`${IP}/indoor`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        futureforecastAQI: aqiValues,  // Send the parsed future AQI forecast
+                        userDetails: parsedUserDetails  // Send the parsed user details
+                    }),
+                });
+
+                const json = await response.json();
+                if (json.success) {
+                    setData(json.message); // Set weather and AQI data
+                    setRecommendations(json.future.recommendations); // Set recommendations from the future key
+                    console.log("Weather and AQI Data:", json.message);
+                } else {
+                    console.error('Failed to fetch weather and AQI data');
+                }
+            }
+            else {
+                console.error('Invalid futureforecastAQI format');
             }
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "ਖਾਤਾ",
+        "HELP":"ਮਦਦ ਕਰੋ",
+        "TotalProducts": "ਕੁੱਲ ਉਤਪਾਦ",
+        "LowInStock": "ਸਟਾਕ ਵਿੱਚ ਉਤਪਾਦ ਘੱਟ",
+        "VisualisationForAnalysis": "ਵਿਜ਼ੂਅਲਾਈਜ਼ੇਸ਼ਨ",
+        "View": "ਵੇਖੋ",
+        "SearchYourProductHere": "ਆਪਣੇ ਉਤਪਾਦ ਇੱਥੇ ਲੱਭੋ",
+        "Quantity": "ਦੀ ਰਕਮ",
+        "Price": "ਕੀਮਤ",
+        "Inventoryerror": "ਸੂਚੀ ਆਈਟਮਾਂ ਦੀ ਮੈਪਿੰਗ ਵਿੱਚ ਤਰੁੱਟੀ",
+        "Failure": "ਫੇਲ"
+    },
+    "ChatBot":{
+        "Back":"ਵਾਪਸ",
+        "HELP":"ਮਦਦ ਕਰੋ",
+        "TypeHere": "ਇੱਥੇ ਟਾਈਪ ਕਰੋ",
+        "PermissionsRequired": "ਇਜਾਜ਼ਤਾਂ ਦੀ ਲੋੜ ਹੈ",
+        "RecrodingFailed": "ਰਿਕਾਰਡਿੰਗ ਅਸਫਲ",
+        "PleaseGrantAudioRecordingPermissions": "ਕਿਰਪਾ ਕਰਕੇ ਆਡੀਓ ਰਿਕਾਰਡਿੰਗ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
+        "AnErrorOccuredWhileTryingToStartRecording": "ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੇ ਸਮੇਂ ਇੱਕ ਤਰੁੱਟੀ ਉਤਪੰਨ ਹੋਈ"
+    },
+    "Nav":{
+        "Add":"ਦਾਇਰ",
+        "Increment":"ਵਾਧਾ",
+        "Decrement": "ਘਟਾਓ",
+        "Delete": "ਹਟਾਓ",
+        "WhatOperationDoYouWantToPerform": "ਤੁਸੀਂ ਕਿਹੜਾ ਓਪਰੇਸ਼ਨ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਵੇਰਵੇ ਪ੍ਰਦਾਨ ਕਰੋ",
+        "ProductName": "ਉਤਪਾਦ",
+        "EnterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+        "BrandName": "ਬ੍ਰਾਂਡ",
+        "EnterBrand": "ਬ੍ਰਾਂਡ ਦਾਖਲ ਕਰੋ",
+        "EnterQuantity": "ਮਾਤਰਾ ਦਰਜ ਕਰੋ", 
+        "Quantity": "ਮਾਤਰਾਵਾਂ",
+        "Increment":"ਵਾਧਾ",
+        "Back":"ਵਾਪਸ",
+        "Failure": "ਫੇਲ",
+        "Success": "ਸਫਲਤਾ"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਵੇਰਵੇ ਪ੍ਰਦਾਨ ਕਰੋ",
+        "ProductName": "ਉਤਪਾਦ",
+        "EnterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+        "BrandName": "ਬ੍ਰਾਂਡ",
+        "EnterBrand": "ਬ੍ਰਾਂਡ ਦਾਖਲ ਕਰੋ",
+        "EnterQuantity": "ਮਾਤਰਾ ਦਰਜ ਕਰੋ", 
+        "Quantity": "ਮਾਤਰਾਵਾਂ",
+        "Decrement": "ਘਟਾਓ",
+        "Back":"ਵਾਪਸ",
+        "Failure": "ਫੇਲ",
+        "Success": "ਸਫਲਤਾ"
+    },
+    "DeleteForm":{
+        "Back":"ਵਾਪਸ",
+        "SpeakTheRequiredDetailsAsMentioned": "ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਵੇਰਵੇ ਪ੍ਰਦਾਨ ਕਰੋ",
+        "ProductName": "ਉਤਪਾਦ",
+        "EnterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+        "BrandName": "ਬ੍ਰਾਂਡ",
+        "EnterBrand": "ਬ੍ਰਾਂਡ ਦਾਖਲ ਕਰੋ",
+        "Delete": "ਹਟਾਓ",
+        "Failure": "ਫੇਲ",
+        "Success": "ਸਫਲਤਾ"
+    },
+    "AddForm":{
+        "Back":"ਵਾਪਸ",
+        "SpeakTheRequiredDetailsAsMentioned": "ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਦਿੱਤੇ ਅਨੁਸਾਰ ਲੋੜੀਂਦੇ ਵੇਰਵੇ ਪ੍ਰਦਾਨ ਕਰੋ",
+        "ProductName": "ਉਤਪਾਦ",
+        "EnterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+        "BrandName": "ਬ੍ਰਾਂਡ",
+        "EnterBrand": "ਬ੍ਰਾਂਡ ਦਾਖਲ ਕਰੋ",
+        "EnterCategory": "ਸ਼੍ਰੇਣੀ ਦਾਖਲ ਕਰੋ",
+        "CategoryName":"ਸ਼੍ਰੇਣੀ",
+        "NetWeightName": "ਭਾਰ",
+        "EnterNetWeight": "ਭਾਰ ਦਰਜ ਕਰੋ",
+        "EnterQuantity": "ਮਾਤਰਾ ਦਰਜ ਕਰੋ", 
+        "Quantity": "ਮਾਤਰਾਵਾਂ",
+        "Threshold": "ਸੀਮਾ",
+        "EnterThreshold": "ਸੀਮਾ ਦਰਜ ਕਰੋ",
+        "Price": "ਕੀਮਤ",
+        "EnterPrice": "ਕੀਮਤ ਦਰਜ ਕਰੋ",
+        "Add":"ਦਾਇਰ",
+        "Failure": "ਫੇਲ",
+        "Success": "ਸਫਲਤਾ"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"ਗੈਲਰੀ ਤੋਂ ਚਿੱਤਰ ਚੁਣੋ",
+        "TakeAPicture": "ਤਸਵੀਰ 'ਤੇ ਕਲਿੱਕ ਕਰੋ",
+        "Retake": "ਇਸ ਨੂੰ ਦੁਬਾਰਾ ਲਓ",
+        "Submit": "ਜਮ੍ਹਾਂ ਕਰੋ",
+        "CameraPersmissionRequiredMessage": "ਮਾਫ਼ ਕਰਨਾ, ਸਾਨੂੰ ਕੈਮਰਾ ਇਜਾਜ਼ਤਾਂ ਦੀ ਲੋੜ ਹੈ",
+        "NoImage": "ਕੋਈ ਚਿੱਤਰ ਨਹੀਂ",
+        "PleaseSelectImage": "ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਇੱਕ ਚਿੱਤਰ ਚੁਣੋ ਜਾਂ ਕਲਿੱਕ ਕਰੋ",
+        "UploadSuccessfulMessage": "ਅੱਪਲੋਡ ਸਫਲ",
+        "Success": "ਸਫਲਤਾ",
+        "Failure": "ਫੇਲ",
+        "UploadUnsuccessfulMessage": "ਅੱਪਲੋਡ ਅਸਫਲ",
+        "HowdoyouwanttouploadImage": "ਤੁਸੀਂ ਚਿੱਤਰ ਕਿਵੇਂ ਅਪਲੋਡ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?"
+    },
+    "Account": {
+        "username": "ਯੂਜ਼ਰਨਾਮ",
+        "contact": "ਫੋਨ ਨੰਬਰ",
+        "email": "ਈ - ਮੇਲ",
+        "language": "ਭਾਸ਼ਾ",
+        "city": "ਸ਼ਹਿਰ",
+        "PersonalDetails": "ਵਿਅਕਤੀਗਤ ਜਾਣਕਾਰੀ",
+        "Contact Details": "ਸੰਪਰਕ ਜਾਣਕਾਰੀ"
+    },
+    "Visualisation": {
+        "Mappingerror": "ਉਤਪਾਦਾਂ ਦੀ ਮੈਪਿੰਗ ਕਰਦੇ ਸਮੇਂ ਇੱਕ ਤਰੁੱਟੀ ਉਤਪੰਨ ਹੋਈ",
+        "Failure": "ਫੇਲ",
+        "StockLevelsbyBrands": "ਬ੍ਰਾਂਡਾਂ ਦੁਆਰਾ ਸਟਾਕ ਦੇ ਪੱਧਰ",
+        "QuantitiesbyProducts": "ਉਤਪਾਦ ਦੁਆਰਾ ਮਾਤਰਾਵਾਂ",
+        "TotalSalesbyCategory": "ਸ਼੍ਰੇਣੀ ਅਨੁਸਾਰ ਕੁੱਲ ਵਿਕਰੀ"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "ਅੱਪਲੋਡ ਅਸਫਲ",
+        "PleaseGrantAudioRecordingPermissions": "ਕਿਰਪਾ ਕਰਕੇ ਆਡੀਓ ਰਿਕਾਰਡਿੰਗ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ",
+        "RecrodingFailed": "ਰਿਕਾਰਡਿੰਗ ਅਸਫਲ",
+        "AnErrorOccuredWhileTryingToStartRecording": "ਰਿਕਾਰਡਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ",
+        "Success": "ਸਫਲਤਾ",
+        "AudioProcessedSuccessfully": "Audio Processed Successfully",
+        "Failure": "ਫੇਲ",
+        "FailedToProcessAudio": "ਆਡੀਓ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਵਿੱਚ ਅਸਫਲ"
+    }
+}

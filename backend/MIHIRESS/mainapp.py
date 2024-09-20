@@ -1,13 +1,11 @@
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Request, Form,UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
 import requests
 from dotenv import load_dotenv
-import os
 from bs4 import BeautifulSoup
 import json
-
+import os, base64, subprocess
 from aqi_cal import get_aqi_cat, calculate_aqi, ret, calculate_multiple_aqi, ret_future
 from climate_fetch import base_ret
 from forecast import forecast_aqi
@@ -17,7 +15,7 @@ from future_forecast import forecast_aqi_for_8_hours, load_and_forecast
 from recommendations import outdoor, indoor
 from indoor import indoor_aqi
 from chat_fin import outputfn
-
+from bhashini import translation, text_to_speech, transcribe
 app = FastAPI()
 
 # app.add_middleware(
@@ -138,35 +136,42 @@ async def get_aqi_news():
 
 
 
-@app.get('/outdoor_recommendations')
-async def outdoor_recom():
+@app.post('/outdoor_recommendations')
+async def outdoor_recom(request: Request):
     try:
+        # Parse incoming data from request body
+        body = await request.json()
+        future_forecast_aqi = body.get("futureforecastAQI")
+        user_details = body.get("userDetails")
         answer = ret()
         climate = base_ret()
         answer["temp"] = climate["temp"]
         answer["humidity"] = climate["humidity"]
         answer["wind"] = climate["wind"]
         answer["precipitation"] = climate["precipitation"]
-        respo = outdoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"])
+        respo = outdoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"], user_details,future_forecast_aqi)
         print(respo)
         return JSONResponse(content={"message": respo, "success": True}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
 
 
-@app.get('/indoor')
-async def indoor_recom():
+@app.post('/indoor')
+async def indoor_recom(request: Request):
     try:
         endpoint = "https://blogcontent.site/projects/indooraqi.php"
         respo = requests.get(endpoint).json()
         answer = {}
+        body = await request.json()
+        future_forecast_aqi = body.get("futureforecastAQI")
+        user_details = body.get("userDetails")
         answer["aqi"], answer["pollutant_res"] = indoor_aqi(int(respo["pm2p5"]), int(respo["pm10"]))
         climate = base_ret()
         answer["temp"] = climate["temp"]
         answer["humidity"] = climate["humidity"]
         answer["wind"] = climate["wind"]
         answer["precipitation"] = climate["precipitation"]
-        respo = indoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"])
+        respo = indoor(answer["aqi"], answer["pollutant_res"], answer["temp"], answer["humidity"], answer["wind"], user_details,future_forecast_aqi)
         print(respo)
         return JSONResponse(content={"message": answer, "future": respo, "success": True}, status_code=200)
     except Exception as e:
@@ -178,11 +183,37 @@ async def chattext(request:Request):
         # text = await request.json()
         translate_text = None
         reponse = await request.json()
-        translate_text = reponse["message"]
+        text = reponse["message"]
+        language = reponse["language"]
+        user_details = reponse["userdetails"]
+        realtime_val = reponse["AQI"]
+        if language == "English":
+            translate_text = text
+        else:
+            translate_response = await translation(language,"English",text)
+            translate_text = translate_response["translated_content"]
         print("\n\n")
         print(translate_text)
-        result = await outputfn(translate_text)
+        result = await outputfn(translate_text, language, user_details, realtime_val)
         return JSONResponse(content={"message":result, "success":True}, status_code=200)
     except Exception as e:
         print(str(e))
         return JSONResponse(content={"message":"Failure ho gaya", "success":False}, status_code=500)
+
+@app.post('/chat_audio')
+async def chataudio(language: str = Form(...), file: UploadFile = Form(...)):
+    try:
+        print(language)
+        command = ["ffmpeg", "-i", "-", "-acodec", "libmp3lame", "-f", "mp3", "-"]
+        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        file_content = await file.read()
+        output, error = process.communicate(input=file_content)
+        if process.returncode != 0:
+            return JSONResponse(status_code=500, content={"message":f"FFmpeg error: {error.decode()}"})
+        base64_encoded_data = base64.b64encode(output).decode('utf-8')
+        source_text = await transcribe(language,base64_encoded_data)
+        text = source_text["transcribed_content"]
+        return JSONResponse(content={"message": text, "success": True}, status_code=200)
+    except Exception as e:
+        print(e)
+        return JSONResponse(content={"message": "Try failure", "success": False}, status_code=500)

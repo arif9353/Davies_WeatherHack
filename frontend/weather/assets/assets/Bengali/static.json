@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "HELP": "সাহায্য করুন",
+        "Account":"অ্যাকাউন্ট" ,
+        "TotalProducts": "মোট পণ্য",
+        "LowInStock": "কম স্টক পণ্য",
+        "VisualisationForAnalysis": "ভিজ্যুয়ালাইজেশন",
+        "View": "দেখুন",
+        "SearchYourProductHere": "এখানে আপনার পণ্যগুলি খুঁজে বের করুন",
+        "Quantity": "পরিমাণ",
+        "Price": "দাম",
+        "Inventoryerror": "তালিকা আইটেম ম্যাপিং ত্রুটি",
+        "Failure": "ব্যর্থ"
+    },
+    "ChatBot":{
+        "Back":"ফিরে",
+        "HELP": "সাহায্য করুন",
+        "TypeHere": "এখানে টাইপ করুন",
+        "PermissionsRequired": "অনুমতি প্রয়োজন",
+        "RecrodingFailed": "রেকর্ডিং ব্যর্থ হয়েছে",
+        "PleaseGrantAudioRecordingPermissions": "অডিও রেকর্ডিং অনুমতি দিন",
+        "AnErrorOccuredWhileTryingToStartRecording": "রেকর্ডিং শুরু করার চেষ্টা করার সময় একটি ত্রুটি ঘটেছে৷"
+    },
+    "Nav":{
+        "Add":"প্রবেশ করা",
+        "Increment":"বৃদ্ধি করুন",
+        "Decrement": "হ্রাস করুন",
+        "Delete": "সরিয়ে ফেলুন",
+        "WhatOperationDoYouWantToPerform": "আপনি কি অপারেশন করতে চান?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "নীচে উল্লিখিত প্রয়োজনীয় বিবরণ লিখুন",
+        "ProductName": "পণ্য",
+        "EnterProductName": "পণ্যের নাম লিখুন",
+        "BrandName": "ব্র্যান্ড",
+        "EnterBrand": "ব্র্যান্ড প্রবেশ করান",
+        "EnterQuantity": "পরিমাণ লিখুন", 
+        "Quantity": "পরিমাণ",
+        "Increment": "বৃদ্ধি করুন",
+        "Back":"ফিরে",
+        "Failure": "ব্যর্থ",
+        "Success": "সফল"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "নীচে উল্লিখিত প্রয়োজনীয় বিবরণ লিখুন",
+        "ProductName": "পণ্য",
+        "EnterProductName": "পণ্যের নাম লিখুন",
+        "BrandName": "ব্র্যান্ড",
+        "EnterBrand": "ব্র্যান্ড প্রবেশ করান",
+        "EnterQuantity": "পরিমাণ লিখুন", 
+        "Quantity": "পরিমাণ",
+        "Decrement": "হ্রাস করুন",
+        "Back":"ফিরে",
+        "Success":"সফল",
+        "Failure":"ব্যর্থ"
+    },
+    "DeleteForm":{
+        "Back":"ফিরে",
+        "SpeakTheRequiredDetailsAsMentioned": "নীচে উল্লিখিত প্রয়োজনীয় বিবরণ লিখুন",
+        "ProductName": "পণ্য",
+        "EnterProductName": "পণ্যের নাম লিখুন",
+        "BrandName": "ব্র্যান্ড",
+        "EnterBrand": "ব্র্যান্ড প্রবেশ করান",
+        "Delete": "সরিয়ে ফেলুন",
+        "Success": "সফল",
+        "Failure": "ব্যর্থ"
+    },
+    "AddForm":{
+        "Back":"ফিরে",
+        "SpeakTheRequiredDetailsAsMentioned": "নীচে উল্লিখিত প্রয়োজনীয় বিবরণ লিখুন",
+        "ProductName": "পণ্য",
+        "EnterProductName": "পণ্যের নাম লিখুন",
+        "BrandName": "ব্র্যান্ড",
+        "EnterBrand": "ব্র্যান্ড প্রবেশ করান",
+        "EnterCategory": "বিভাগ লিখুন",
+        "CategoryName":"বিভাগ",
+        "NetWeightName": "ওজন",
+        "EnterNetWeight": "ওজন যোগ করুন",
+        "Quantity": "পরিমাণ",
+        "EnterQuantity": "পরিমাণ লিখুন",
+        "Threshold": "সীমানা",
+        "EnterThreshold": "পরিসীমা প্রবেশ করান",
+        "Price": "দাম",
+        "EnterPrice":"মূল্য লিখুন" ,
+        "Add":"প্রবেশ করা",
+        "Success":"সফল",
+        "Failure":"ব্যর্থ"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"গ্যালারি থেকে ছবি নির্বাচন করুন",
+        "TakeAPicture": "ছবিতে ক্লিক করুন",
+        "Retake": "এটা আবার নাও",
+        "Submit": "জমা দিন",
+        "CameraPersmissionRequiredMessage": "দুঃখিত, আমাদের ক্যামেরার অনুমতি দরকার",
+        "NoImage": "কোন ছবি নেই",
+        "PleaseSelectImage": "দয়া করে প্রথমে একটি ছবি নির্বাচন করুন বা ক্লিক করুন",
+        "UploadSuccessfulMessage": "আপলোড সফল হয়েছে",
+        "Success": "সফল",
+        "Failure": "ব্যর্থ",
+        "UploadUnsuccessfulMessage": "আপলোড ব্যর্থ হয়েছে",
+        "HowdoyouwanttouploadImage": "আপনি কিভাবে ছবি আপলোড করতে চান?"
+    },
+    "Account": {
+        "username": "ইউজারনেম",
+        "contact": "ফোন নম্বর",
+        "email": "ই-মেইল",
+        "language": "ভাষা",
+        "city": "শহর",
+        "PersonalDetails": "ব্যক্তিগত তথ্য",
+        "ContactDetails": "যোগাযোগের তথ্য"
+    },
+    "Visualisation": {
+        "Mappingerror": "পণ্য ম্যাপ করার সময় একটি ত্রুটি ঘটেছে৷",
+        "Failure": "ব্যর্থ",
+        "StockLevelsbyBrands": "ব্র্যান্ড দ্বারা স্টক স্তর",
+        "QuantitiesbyProducts": "পণ্য দ্বারা পরিমাণ",
+        "TotalSalesbyCategory": "বিভাগ অনুসারে মোট বিক্রয়"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "অনুমতি প্রয়োজন",
+        "PleaseGrantAudioRecordingPermissions": "অডিও রেকর্ডিং অনুমতি দিন",
+        "RecrodingFailed": "রেকর্ডিং ব্যর্থ হয়েছে",
+        "AnErrorOccuredWhileTryingToStartRecording": "রেকর্ডিং শুরু করার চেষ্টা করার সময় একটি ত্রুটি ঘটেছে",
+        "Success": "সফল",
+        "AudioProcessedSuccessfully": "অডিও সফলভাবে প্রক্রিয়া করা হয়েছে৷",
+        "Failure": "ব্যর্থ",
+        "FailedToProcessAudio": "অডিও প্রক্রিয়া করতে ব্যর্থ"
+    }
+}

@@ -8,16 +8,22 @@ import NewsPage from './pages/NewsPage';
 import RecommendationsPage from './pages/RecommendationsPage';
 import Indoor from './pages/IndoorPage';
 import ChatScreen from './pages/Chatbot';
+import UserTypePage from './pages/Questions';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingPage">
+      <Stack.Navigator initialRouteName="UserTypePage">
         <Stack.Screen
           name="LandingPage"
           component={LandingPage}
+          options={{ headerShown: false }} // Hides default header
+        />
+        <Stack.Screen
+          name="UserTypePage"
+          component={UserTypePage}
           options={{ headerShown: false }} // Hides default header
         />
         <Stack.Screen

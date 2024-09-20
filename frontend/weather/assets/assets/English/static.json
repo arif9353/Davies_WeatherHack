@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "Account",
+        "HELP": "Help",
+        "TotalProducts": "Total Products",
+        "LowInStock": "Low in Stock",
+        "VisualisationForAnalysis": "Visualisation For Analysis",
+        "View": "View",
+        "SearchYourProductHere": "Search Your Product Here",
+        "Quantity": "Quantity",
+        "Price": "Price",
+        "Inventoryerror": "An error occurred while mapping of inventory items",
+        "Failure": "Failure"
+    },
+    "ChatBot":{
+        "Back":"Back",
+        "HELP":"Help",
+        "TypeHere": "Type Here..",
+        "PermissionsRequired": "Permission is required",
+        "RecrodingFailed": "Recording Failed",
+        "PleaseGrantAudioRecordingPermissions": "Please Grant Audio Recording Permissions",
+        "AnErrorOccuredWhileTryingToStartRecording": "An Error Occured While Trying To Start Recording"
+    },
+    "Nav":{
+        "Add":"Add",
+        "Increment":"Increment",
+        "Decrement": "Decrement",
+        "Delete": "Delete",
+        "WhatOperationDoYouWantToPerform": "What Operation do you want to perform?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "Speak the required details as mentioned below",
+        "ProductName": "Product",
+        "EnterProductName": "Enter the product name",
+        "BrandName": "Brand",
+        "EnterBrand": "Enter the Brand",
+        "EnterQuantity": "Enter the Quantity", 
+        "Quantity": "Quantity",
+        "Increment":"Increment",
+        "Back":"Back",
+        "Failure": "Failure",
+        "Success": "Success"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "Speak the required details as mentioned below",
+        "ProductName": "Product",
+        "EnterProductName": "Enter the product name",
+        "BrandName": "Brand",
+        "EnterBrand": "Enter the Brand",
+        "EnterQuantity": "Enter the Quantity", 
+        "Quantity": "Quantity",
+        "Decrement": "Decrement",
+        "Back":"Back",
+        "Success":"Success",
+        "Failure":"Failure"
+    },
+    "DeleteForm":{
+        "Back":"Back",
+        "SpeakTheRequiredDetailsAsMentioned": "Speak the required details as mentioned below",
+        "ProductName": "Product",
+        "EnterProductName": "Enter the product name",
+        "EnterBrand":"Enter the Brand",
+        "BrandName": "Brand",
+        "Delete": "Delete",
+        "Success": "Success",
+        "Failure": "Failure"
+    },
+    "AddForm":{
+        "Back":"Back",
+        "ProductName": "Product",
+        "EnterProductName": "Enter the product name",
+        "SpeakTheRequiredDetailsAsMentioned": "Speak the required details as mentioned below",
+        "EnterBrand": "Enter the Brand",
+        "BrandName": "Brand",
+        "EnterCategory": "Enter the Category",
+        "CategoryName":"Category",
+        "NetWeightName": "Net Weight",
+        "EnterNetWeight": "Enter the Net Weight",
+        "Quantity": "Quantity",
+        "EnterQuantity": "Quantity",
+        "Threshold": "Threshold",
+        "EnterThreshold": "Threshold",
+        "Price": "Price",
+        "EnterPrice": "Enter the price",
+        "Add":"Add",
+        "Success":"Success",
+        "Failure":"Failure"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"Pick a picture from gallery",
+        "TakeAPicture": "Take a Picture",
+        "Retake": "Retake",
+        "Submit": "Submit",
+        "CameraPersmissionRequiredMessage": "Camera Persmission is Required",
+        "NoImage": "No Image",
+        "PleaseSelectImage": "Please Select Image",
+        "UploadSuccessfulMessage": "Upload Successful",
+        "Success": "Success",
+        "Failure": "Failure",
+        "UploadUnsuccessfulMessage": "Upload Unsuccessful",
+        "HowdoyouwanttouploadImage": "How do you want to upload Image?"
+    },
+    "Account": {
+        "username": "Username",
+        "contact": "Contact",
+        "email": "Email",
+        "language": "Language",
+        "city": "City",
+        "PersonalDetails": "Personal Information",
+        "ContactDetails": "Contact Information"
+    },
+    "Visualisation": {
+        "Mappingerror": "An error occurred while mapping items",
+        "Failure": "Failure",
+        "StockLevelsbyBrands": "Stock levels by brand",
+        "QuantitiesbyProducts": "Quantities by products",
+        "TotalSalesbyCategory": "Total sales by category"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "Permissions Required",
+        "PleaseGrantAudioRecordingPermissions": "Please Grant Audio Recording Permissions",
+        "RecrodingFailed": "Recording Failed",
+        "AnErrorOccuredWhileTryingToStartRecording": "An Error Occured While Trying To Start Recording",
+        "Success": "Success",
+        "AudioProcessedSuccessfully": "Audio Processed Successfully",
+        "Failure": "Failure",
+        "FailedToProcessAudio": "Failed to proccess the audio"
+    }
+}

@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "একাউণ্ট",
+        "HELP": "সহায়",
+        "TotalProducts": "মুঠ পণ্য",
+        "LowInStock": "প্ৰডাক্ট কম ষ্টকত",
+        "VisualisationForAnalysis": "ভিজুৱেলাইজেচন",
+        "View": "চোৱা",
+        "SearchYourProductHere": "আপোনাৰ সামগ্ৰী ইয়াত বিচাৰি পাওক",
+        "Quantity": "পৰিমাণ",
+        "Price": "মূল্য",
+        "Inventoryerror": "তালিকাৰ বস্তুসমূহ মেপিং কৰাত ত্ৰুটি",
+        "Failure": "যৰ্থ হোৱা"
+    },
+    "ChatBot":{
+        "Back":"পিছফালে",
+        "HELP": "সহায়",
+        "TypeHere": "ইয়াত টাইপ কৰক",
+        "PermissionsRequired": "অনুমতিৰ প্ৰয়োজন",
+        "RecrodingFailed": "ৰেকৰ্ডিং বিফল হ'ল",
+        "PleaseGrantAudioRecordingPermissions": "অনুগ্ৰহ কৰি অডিঅ' ৰেকৰ্ডিংৰ অনুমতি দিয়ক",
+        "AnErrorOccuredWhileTryingToStartRecording": "ৰেকৰ্ডিং আৰম্ভ কৰিবলৈ চেষ্টা কৰাৰ সময়ত এটা ভুল হৈছে"
+    },
+    "Nav":{
+        "Add":"যোগ কৰা",
+        "Increment":"বৃদ্ধি কৰা",
+        "Decrement": "বিয়োগ",
+        "Delete": "আঁতৰোৱা",
+        "WhatOperationDoYouWantToPerform": "আপুনি কি অপাৰেচন কৰিব বিচাৰে?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "তলত দিয়া ধৰণে প্ৰয়োজনীয় সবিশেষ প্ৰদান কৰক",
+        "ProductName": "সামগ্ৰী",
+        "EnterProductName": "পণ্যৰ নাম লিখক",
+        "BrandName": "ব্ৰেণ্ড",
+        "EnterBrand": "ব্ৰেণ্ড প্ৰৱেশ কৰক",
+        "EnterQuantity": "পৰিমাণ প্ৰৱেশ কৰক", 
+        "Quantity": "পৰিমাণ",
+        "Increment": "বৃদ্ধি কৰা",
+        "Back": "পিছফালে",
+        "Failure": "যৰ্থ হোৱা",
+        "Success": "সফল"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "তলত দিয়া ধৰণে প্ৰয়োজনীয় সবিশেষ প্ৰদান কৰক",
+        "ProductName": "সামগ্ৰী",
+        "EnterProductName": "পণ্যৰ নাম লিখক",
+        "BrandName": "ব্ৰেণ্ড",
+        "EnterBrand": "ব্ৰেণ্ড প্ৰৱেশ কৰক",
+        "EnterQuantity": "পৰিমাণ প্ৰৱেশ কৰক", 
+        "Quantity": "পৰিমাণ",
+        "Decrement": "বিয়োগ",
+        "Back": "পিছফালে",
+        "Success":"সফল",
+        "Failure":"যৰ্থ হোৱা"
+    },
+    "DeleteForm":{
+        "Back":"পিছফালে",
+        "SpeakTheRequiredDetailsAsMentioned": "তলত দিয়া ধৰণে প্ৰয়োজনীয় সবিশেষ প্ৰদান কৰক",
+        "ProductName": "সামগ্ৰী",
+        "EnterProductName": "পণ্যৰ নাম লিখক",
+        "BrandName": "ব্ৰেণ্ড",
+        "EnterBrand": "ব্ৰেণ্ড প্ৰৱেশ কৰক",
+        "Delete": "আঁতৰোৱা",
+        "Success": "সফল",
+        "Failure": "যৰ্থ হোৱা"
+    },
+    "AddForm":{
+        "Back":"পিছফালে",
+        "SpeakTheRequiredDetailsAsMentioned": "তলত দিয়া ধৰণে প্ৰয়োজনীয় সবিশেষ প্ৰদান কৰক",
+        "ProductName": "সামগ্ৰী",
+        "EnterProductName": "পণ্যৰ নাম লিখক",
+        "BrandName": "ব্ৰেণ্ড",
+        "EnterBrand": "ব্ৰেণ্ড প্ৰৱেশ কৰক",
+        "EnterCategory": "শ্ৰেণী প্ৰৱেশ কৰক",
+        "CategoryName":"শ্ৰেণী",
+        "NetWeightName": "ওজন",
+        "EnterNetWeight": "উজন প্ৰৱেশ কৰক",
+        "EnterQuantity": "পৰিমাণ প্ৰৱেশ কৰক", 
+        "Quantity": "পৰিমাণ",
+        "Threshold": "পৰিসৰ",
+        "EnterThreshold": "পৰিসৰ প্ৰৱেশ কৰক",
+        "Price": "মূল্য",
+        "EnterPrice": "মূল্য প্ৰৱেশ কৰক",
+        "Add":"যোগ কৰা",
+        "Success":"সফল",
+        "Failure":"যৰ্থ হোৱা"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"গেলেৰীৰ পৰা ছবি নিৰ্বাচন কৰক",
+        "TakeAPicture": "চিত্ৰখন ক্লিক কৰক",
+        "Retake": "আকৌ লওক",
+        "Submit": "দাখিল কৰক",
+        "CameraPersmissionRequiredMessage": "ক্ষমা কৰিব, আমাক কেমেৰাৰ অনুমতি লাগে",
+        "NoImage": "নো ইমেজ",
+        "PleaseSelectImage": "অনুগ্ৰহ কৰি প্ৰথমে এখন ছবি নিৰ্বাচন কৰক বা ক্লিক কৰক",
+        "UploadSuccessfulMessage": "আপলোড সফল",
+        "Success": "সফল",
+        "Failure": "ব্যৰ্থ হোৱা",
+        "UploadUnsuccessfulMessage": "আপলোড বিফল",
+        "HowdoyouwanttouploadImage": "আপুনি ছবি কেনেকৈ আপলোড কৰিব বিচাৰে?"
+    },
+    "Account": {
+        "username": "ইউচাৰ্না",
+        "contact": "ফোন নাম্বি",
+        "email": "ইমেইল",
+        "language": "ভাষা",
+        "city": "চহৰ",
+        "PersonalDetails": "ব্যক্তিগত তথ্য",
+        "ContactDetails": "যোগাযোগৰ তথ্য"
+    },
+    "Visualisation": {
+        "Mappingerror": "উৎপাদনসমূহ মেপিং কৰাৰ সময়ত এটা ভুল হৈছে",
+        "Failure": "যৰ্থ হোৱা",
+        "StockLevelsbyBrands": "ব্ৰেণ্ড অনুসৰি ষ্টক স্তৰ",
+        "QuantitiesbyProducts": "পণ্য অনুসৰি পৰিমাণ",
+        "TotalSalesbyCategory": "শ্ৰেণী অনুসৰি মুঠ বিক্ৰী"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "অনুমতিৰ প্ৰয়োজন",
+        "PleaseGrantAudioRecordingPermissions": "অডিঅ' ৰেকৰ্ডিঙৰ অনুমতি দিয়ক",
+        "RecrodingFailed": "ৰেকৰ্ডিং বিফল",
+        "AnErrorOccuredWhileTryingToStartRecording": "ৰেকৰ্ডিং আৰম্ভ কৰিবলৈ চেষ্টা কৰাৰ সময়ত এটা ভুল হৈছে",
+        "Success": "সফল",
+        "AudioProcessedSuccessfully": "অডিঅ 'সফলতাৰে প্ৰক্ৰিয়া কৰা হৈছে",
+        "Failure": "যৰ্থ হোৱা",
+        "FailedToProcessAudio": "অডিঅ' প্ৰক্ৰিয়া কৰাত ব্যৰ্থ"
+    }
+}    

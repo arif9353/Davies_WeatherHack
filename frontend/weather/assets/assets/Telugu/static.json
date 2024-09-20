@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "ఖాతా",
+        "HELP":"உதவி",
+        "TotalProducts": "మొత్తం ఉత్పత్తి",
+        "LowInStock": "స్టాక్‌లో ఉత్పత్తి తక్కువగా ఉంది",
+        "VisualisationForAnalysis": "విజువలైజేషన్",
+        "View": "చూడండి",
+        "SearchYourProductHere": "మీ ఉత్పత్తులను ఇక్కడ కనుగొనండి",
+        "Quantity": "మొత్తం",
+        "Price": "ధర",
+        "Inventoryerror": "జాబితా అంశాలను మ్యాపింగ్ చేయడంలో లోపం",
+        "Failure": "విఫలం"
+    },
+    "ChatBot":{
+        "Back":"వెనుకకు",
+        "HELP":"உதவி",
+        "TypeHere": "ఇక్కడ టైపు చేయండి",
+        "PermissionsRequired": "அனுமதிகள் தேவை",
+        "RecrodingFailed": "பதிவு தோல்வியடைந்தது",
+        "PleaseGrantAudioRecordingPermissions": "ஆடியோ பதிவை அனுமதிக்கவும்",
+        "AnErrorOccuredWhileTryingToStartRecording": "பதிவைத் தொடங்கும் போது பிழை ஏற்பட்டது"
+    },
+    "Nav":{
+        "Add":"జోడించు",
+        "Increment":"పెంచు",
+        "Decrement": "తీసివేయి",
+        "Delete": "తొలగించు",
+        "WhatOperationDoYouWantToPerform": "మీరు ఏ ఆపరేషన్ చేయాలనుకుంటున్నారు?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "దయచేసి దిగువన అందించిన విధంగా అవసరమైన వివరాలను అందించండి",
+        "ProductName": "ఉత్పత్తి",
+        "EnterProductName":"ఉత్పత్తి పేరును నమోదు చేయండి",
+        "BrandName": "బ్రాండ్",
+        "EnterBrand": "బ్రాండ్‌ని నమోదు చేయండి",
+        "EnterQuantity": "పరిమాణాన్ని నమోదు చేయండి", 
+        "Quantity": "మొత్తం",
+        "Increment":"పెంచు",
+        "Back":"వెనుకకు",
+        "Failure": "విఫలం",
+        "Success": "విజయం"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "దయచేసి దిగువన అందించిన విధంగా అవసరమైన వివరాలను అందించండి",
+        "ProductName": "ఉత్పత్తి",
+        "EnterProductName":"ఉత్పత్తి పేరును నమోదు చేయండి",
+        "BrandName": "బ్రాండ్",
+        "EnterBrand": "బ్రాండ్‌ని నమోదు చేయండి",
+        "EnterQuantity": "పరిమాణాన్ని నమోదు చేయండి", 
+        "Quantity": "మొత్తం",
+        "Decrement": "తీసివేయి",
+        "Back":"వెనుకకు",
+        "Success":"విజయం",
+        "Failure":"విఫలం"
+    },
+    "DeleteForm":{
+        "Back":"వెనుకకు",
+        "SpeakTheRequiredDetailsAsMentioned": "దయచేసి దిగువన అందించిన విధంగా అవసరమైన వివరాలను అందించండి",
+        "ProductName": "ఉత్పత్తి",
+        "EnterProductName":"ఉత్పత్తి పేరును నమోదు చేయండి",
+        "BrandName": "బ్రాండ్",
+        "EnterBrand": "బ్రాండ్‌ని నమోదు చేయండి",
+        "Delete": "తొలగించు",
+        "Success":"విజయం",
+        "Failure":"విఫలం"
+    },
+    "AddForm":{
+        "Back":"వెనుకకు",
+        "SpeakTheRequiredDetailsAsMentioned": "దయచేసి దిగువన అందించిన విధంగా అవసరమైన వివరాలను అందించండి",
+        "ProductName": "ఉత్పత్తి",
+        "EnterProductName":"ఉత్పత్తి పేరును నమోదు చేయండి",
+        "BrandName": "బ్రాండ్",
+        "EnterBrand": "బ్రాండ్‌ని నమోదు చేయండి",
+        "EnterCategory": "వర్గాన్ని నమోదు చేయండి",
+        "CategoryName":"వర్గం",
+        "NetWeightName": "బరువు",
+        "EnterNetWeight": "బరువు నమోదు చేయండి",
+        "Quantity": "మొత్తం",
+        "EnterQuantity": "పరిమాణాన్ని నమోదు చేయండి",
+        "Threshold": "పరిమితి",
+        "EnterThreshold": "పరిధిని నమోదు చేయండి",
+        "Price": "ధర",
+        "EnterPrice": "ధరను నమోదు చేయండి",
+        "Add":"జోడించు",
+        "Success":"విజయం",
+        "Failure":"విఫలం"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"గ్యాలరీ నుండి చిత్రాన్ని ఎంచుకోండి",
+        "TakeAPicture": "చిత్రాన్ని క్లిక్ చేయండి",
+        "Retake": "మళ్ళీ తీసుకో",
+        "Submit": "సమర్పించు",
+        "CameraPersmissionRequiredMessage": "క్షమించండి, మాకు కెమెరా అనుమతులు కావాలి",
+        "NoImage": "చిత్రం లేదు",
+        "PleaseSelectImage": "దయచేసి ముందుగా చిత్రాన్ని ఎంచుకోండి లేదా క్లిక్ చేయండి",
+        "UploadSuccessfulMessage": "అప్‌లోడ్ విజయవంతమైంది",
+        "Success": "విజయం",
+        "Failure": "విఫలం",
+        "UploadUnsuccessfulMessage": "అప్లోడ్ విఫలమైంది",
+        "HowdoyouwanttouploadImage": "మీరు చిత్రాన్ని ఎలా అప్‌లోడ్ చేయాలనుకుంటున్నారు?"
+    },
+    "Account": {
+        "username": "యూజర్నేమ్‌",
+        "contact": "ఫోన్‌ నంబర్‌",
+        "email": "ఇ-మెయిల్",
+        "language": "భాష",
+        "city": "నగరం",
+        "PersonalDetails": "వ్యక్తిగత సమాచారం",
+        "ContactDetails": "సంప్రదింపు సమాచారం"
+    },
+    "Visualisation": {
+        "Mappingerror": "ఉత్పత్తులను మ్యాపింగ్ చేస్తున్నప్పుడు లోపం సంభవించింది",
+        "Failure": "విఫలం",
+        "StockLevelsbyBrands": "బ్రాండ్ల వారీగా స్టాక్ స్థాయిలు",
+        "QuantitiesbyProducts": "ఉత్పత్తి వారీగా పరిమాణాలు",
+        "TotalSalesbyCategory": "వర్గం వారీగా మొత్తం అమ్మకాలు"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "అనుమతులు అవసరం",
+        "PleaseGrantAudioRecordingPermissions": "దయచేసి ఆడియో రికార్డింగ్‌ని అనుమతించండి",
+        "RecrodingFailed": "రికార్డింగ్ విఫలమైంది",
+        "AnErrorOccuredWhileTryingToStartRecording": "రికార్డింగ్ ప్రారంభించడానికి ప్రయత్నిస్తున్నప్పుడు లోపం సంభవించింది",
+        "Success": "విజయం",
+        "AudioProcessedSuccessfully": "ఆడియో విజయవంతంగా ప్రాసెస్ చేయబడింది",
+        "Failure": "విఫలం",
+        "FailedToProcessAudio": "ఆడియోను ప్రాసెస్ చేయడంలో విఫలమైంది"
+    }
+}

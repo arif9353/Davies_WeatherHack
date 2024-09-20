@@ -4,6 +4,7 @@ import Recommendations from '../components/Recommendations'; // Adjust the path 
 import Header from '../components/Header';
 import BottomNavBar from '../components/BottomNav'; // Adjust the path as needed
 import IP from './IP_Address';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const RecommendationsPage = ({ navigation }) => {
     const [recommendations, setRecommendations] = useState([]);
@@ -12,12 +13,38 @@ const RecommendationsPage = ({ navigation }) => {
     useEffect(() => {
         const fetchRecommendations = async () => {
             try {
-                const response = await fetch(`${IP}/outdoor_recommendations`);
-                const json = await response.json();
-                if (json.success) {
-                    setRecommendations(json.message.recommendations);
+                // Fetch values from AsyncStorage
+                const futureforecastAQI = await AsyncStorage.getItem('futureAQI');
+                const userDetails = await AsyncStorage.getItem('userdetails');
+
+                // Parse the stored values as JSON
+                const parsedFutureAQI = JSON.parse(futureforecastAQI);
+                const parsedUserDetails = JSON.parse(userDetails);
+
+                // Ensure parsedFutureAQI is an array before mapping
+                if (Array.isArray(parsedFutureAQI)) {
+                    const aqiValues = parsedFutureAQI.map(entry => entry.aqi);
+
+                    // Create the POST request
+                    const response = await fetch(`${IP}/outdoor_recommendations`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            futureforecastAQI: aqiValues,  // Send the parsed future AQI forecast
+                            userDetails: parsedUserDetails  // Send the parsed user details
+                        }),
+                    });
+
+                    const json = await response.json();
+                    if (json.success) {
+                        setRecommendations(json.message.recommendations);
+                    } else {
+                        console.error('Failed to fetch recommendations');
+                    }
                 } else {
-                    console.error('Failed to fetch recommendations');
+                    console.error('Invalid futureforecastAQI format');
                 }
             } catch (error) {
                 console.error('Error fetching recommendations:', error);

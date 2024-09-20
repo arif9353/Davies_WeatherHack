@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "HELP": "મદદ",
+        "Account": "એકાઉન્ટ",
+        "TotalProducts": "કુલ ઉત્પાદન",
+        "LowInStock": "સ્ટોકમાં ઉત્પાદન ઓછું",
+        "VisualisationForAnalysis": "વિઝ્યુલાઇઝેશન",
+        "View": "જુઓ",
+        "SearchYourProductHere": "તમારા ઉત્પાદનો અહીં શોધો",
+        "Quantity": "રકમ",
+        "Price": "કિંમત",
+        "Inventoryerror": "સૂચિ આઇટમ્સને મેપ કરવામાં ભૂલ",
+        "Failure": "નિષ્ફળ"
+    },
+    "ChatBot":{
+        "Back": "પાછળ",
+        "HELP": "મદદ",
+        "TypeHere": "અહી લખો",
+        "PermissionsRequired": "પરવાનગીઓ જરૂરી છે",
+        "RecrodingFailed": "રેકોર્ડિંગ નિષ્ફળ",
+        "PleaseGrantAudioRecordingPermissions": "કૃપા કરીને ઑડિયો રેકોર્ડિંગને મંજૂરી આપો",
+        "AnErrorOccuredWhileTryingToStartRecording": "રેકોર્ડિંગ શરૂ કરવાનો પ્રયાસ કરતી વખતે એક ભૂલ આવી"
+    },
+    "Nav":{
+        "Add":"ઉમેરો",
+        "Increment": "વધારો",
+        "Decrement": "બાદબાકી",
+        "Delete": "દૂર કરો",
+        "WhatOperationDoYouWantToPerform": "તમે કયું ઓપરેશન કરવા માંગો છો?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "નીચે આપેલ મુજબ જરૂરી વિગતો આપો",
+        "ProductName": "ઉત્પાદન",
+        "EnterProductName": "ઉત્પાદનનું નામ દાખલ કરો",
+        "BrandName": "બ્રાન્ડ",
+        "EnterBrand": "બ્રાંડ દાખલ કરો",
+        "EnterQuantity": "માત્રા દાખલ કરો", 
+        "Quantity": "માત્રા",
+        "Back":"પાછળ",
+        "Increment": "વધારો" ,
+        "Failure": "નિષ્ફળ",
+        "Success": "સફળતા"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "નીચે આપેલ મુજબ જરૂરી વિગતો આપો",
+        "ProductName": "ઉત્પાદન",
+        "EnterProductName": "ઉત્પાદનનું નામ દાખલ કરો",
+        "BrandName": "બ્રાન્ડ",
+        "EnterBrand": "બ્રાંડ દાખલ કરો",
+        "EnterQuantity": "માત્રા દાખલ કરો", 
+        "Quantity": "માત્રા",
+        "Back":"પાછળ",
+        "Decrement": "બાદબાકી",
+        "Success":"સફળતા",
+        "Failure":"નિષ્ફળ"
+    },
+    "DeleteForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "નીચે આપેલ મુજબ જરૂરી વિગતો આપો",
+        "ProductName": "ઉત્પાદન",
+        "EnterProductName": "ઉત્પાદનનું નામ દાખલ કરો",
+        "BrandName": "બ્રાન્ડ",
+        "EnterBrand": "બ્રાંડ દાખલ કરો",
+        "Back":"પાછળ",
+        "Delete": "દૂર કરો",
+        "Success": "સફળતા",
+        "Failure": "નિષ્ફળ"
+    },
+    "AddForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "નીચે આપેલ મુજબ જરૂરી વિગતો આપો",
+        "ProductName": "ઉત્પાદન",
+        "EnterProductName": "ઉત્પાદનનું નામ દાખલ કરો",
+        "BrandName": "બ્રાન્ડ",
+        "EnterBrand": "બ્રાંડ દાખલ કરો",
+        "Back":"પાછળ",
+        "EnterCategory": "શ્રેણી દાખલ કરો",
+        "CategoryName":"શ્રેણી",
+        "NetWeightName": "વજન",
+        "EnterNetWeight": "વજન દાખલ કરો",
+        "EnterQuantity": "માત્રા દાખલ કરો", 
+        "Quantity": "માત્રા",
+        "Threshold": "થ્રેશોલ્ડ",
+        "EnterThreshold": "થ્રેશોલ્ડ દાખલ કરો",
+        "Price": "કિંમત",
+        "EnterPrice": "કિંમત દાખલ કરો",
+        "Add":"ઉમેરો",
+        "Success":"સફળતા",
+        "Failure":"નિષ્ફળ"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery": "ગેલેરીમાંથી છબી પસંદ કરો",
+        "TakeAPicture": "ચિત્ર પર ક્લિક કરો",
+        "Retake": "ફરીથી લો",
+        "Submit": "સબમિટ કરો",
+        "CameraPersmissionRequiredMessage": "માફ કરશો, અમને કેમેરાની પરવાનગીની જરૂર છે",
+        "NoImage": "કોઈ છબી નથી",
+        "PleaseSelectImage": "કૃપા કરીને પહેલા એક છબી પસંદ કરો અથવા ક્લિક કરો",
+        "UploadSuccessfulMessage": "અપલોડ સફળ",
+        "Success": "સફળતા",
+        "Failure": "નિષ્ફળ",
+        "UploadUnsuccessfulMessage": "અપલોડ નિષ્ફળ થયું",
+        "HowdoyouwanttouploadImage": "તમે કેવી રીતે છબી અપલોડ કરવા માંગો છો?"
+    },
+    "Account": {
+        "username": "યુઝરનેમ",
+        "contact": "ફોન નંબર",
+        "email": "ઈ-મેલ",
+        "language": "ભાષા",
+        "city": "શહેર",
+        "PersonalDetails": "વ્યક્તિગત માહિતી",
+        "ContactDetails": "સંપર્ક માહિતી"
+    },
+    "Visualisation": {
+        "Mappingerror": "ઉત્પાદનોને મેપ કરતી વખતે એક ભૂલ આવી",
+        "Failure": "નિષ્ફળ",
+        "StockLevelsbyBrands": "બ્રાન્ડ્સ દ્વારા સ્ટોક સ્તરો",
+        "QuantitiesbyProducts": "ઉત્પાદન દ્વારા જથ્થો",
+        "TotalSalesbyCategory": "શ્રેણી દ્વારા કુલ વેચાણ"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "પરવાનગી જરૂરી છે",
+        "PleaseGrantAudioRecordingPermissions": "કૃપા કરીને ઑડિયો રેકોર્ડિંગની મંજૂરી આપો",
+        "RecrodingFailed": "રેકોર્ડિંગ નિષ્ફળ થયું",
+        "AnErrorOccuredWhileTryingToStartRecording": "રેકોર્ડિંગ શરૂ કરવાનો પ્રયાસ કરતી વખતે એક ભૂલ આવી",
+        "Success": "સફળતા",
+        "AudioProcessedSuccessfully": "ઑડિઓ પર સફળતાપૂર્વક પ્રક્રિયા થઈ",
+        "Failure": "નિષ્ફળ",
+        "FailedToProcessAudio": "ઑડિયો પર પ્રક્રિયા કરવામાં નિષ્ફળ"
+    }
+}

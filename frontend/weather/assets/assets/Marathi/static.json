@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "HELP": "मदत",
+        "Account": "खाते",
+        "TotalProducts": "एकूण उत्पाद",
+        "LowInStock": "स्टॉकमध्ये कमी",
+        "VisualisationForAnalysis": "विश्लेषणासाठी दृश्यीकरण",
+        "View": "पाहा",
+        "SearchYourProductHere": "आपले उत्पाद येथे शोधा",
+        "Quantity": "मात्रा",
+        "Price": "किंमत",
+        "Inventoryerror": "सूची आयटम मॅपिंग त्रुटी",
+        "Failure": "असफळता"
+    },
+    "ChatBot": {
+        "Back": "मागे",
+        "HELP": "मदत",
+        "TypeHere": "येथे टाइप करा",
+        "PermissionsRequired": "परवानग्या आवश्यक आहेत",
+        "RecrodingFailed":"रेकॉर्डिंग अयशस्वी" ,
+        "PleaseGrantAudioRecordingPermissions": "कृपया ऑडिओ रेकॉर्डिंगला अनुमती द्या",
+        "AnErrorOccuredWhileTryingToStartRecording": "रेकॉर्डिंग सुरू करण्याचा प्रयत्न करताना एक त्रुटी आली"
+    },
+    "Nav": {
+        "Add": "जोडा",
+        "Increment": "वाढवा",
+        "Decrement": "कमी करा",
+        "Delete": "काढा",
+        "WhatOperationDoYouWantToPerform": "तुम्हाला कोणते ऑपरेशन करायचे आहे?"
+    },
+    "IncrementForm": {
+        "SpeakTheRequiredDetailsAsMentioned": "खाली नमूद केलेल्या अनुसार आवश्यक माहिती बोला",
+        "ProductName": "उत्पाद",
+        "EnterProductName": "उत्पाद नाव प्रविष्ट करा",
+        "BrandName": "ब्रँड",
+        "EnterBrand": "ब्रँड प्रविष्ट करा",
+        "EnterQuantity": "मात्रा प्रविष्ट करा",
+        "Quantity": "मात्रा",
+        "Increment": "वाढवा",
+        "Back": "मागे",
+        "Failure": "असफळता",
+        "Success": "सफळता"
+    },
+    "DecrementForm": {
+        "SpeakTheRequiredDetailsAsMentioned": "खाली नमूद केलेल्या अनुसार आवश्यक माहिती बोला",
+        "ProductName": "उत्पाद",
+        "EnterProductName": "उत्पाद नाव प्रविष्ट करा",
+        "BrandName": "ब्रँड",
+        "EnterBrand": "ब्रँड प्रविष्ट करा",
+        "EnterQuantity": "मात्रा प्रविष्ट करा",
+        "Quantity": "मात्रा",
+        "Decrement": "कमी करा",
+        "Back": "मागे",
+        "Success":"सफळता",
+        "Failure":"असफळता"
+    },
+    "DeleteForm": {
+        "Back": "मागे",
+        "SpeakTheRequiredDetailsAsMentioned": "खाली नमूद केलेल्या अनुसार आवश्यक माहिती बोला",
+        "ProductName": "उत्पाद",
+        "EnterProductName": "उत्पाद नाव प्रविष्ट करा",
+        "EnterBrand": "ब्रँड प्रविष्ट करा",
+        "BrandName": "ब्रांड",
+        "Delete": "काढा",
+        "Success":"सफळता",
+        "Failure":"असफळता"
+    },
+    "AddForm": {
+        "Back": "मागे",
+        "ProductName": "उत्पाद",        
+        "EnterProductName": "उत्पाद नाव प्रविष्ट करा",
+        "EnterBrand": "ब्रँड प्रविष्ट करा",
+        "SpeakTheRequiredDetailsAsMentioned": "खाली नमूद केलेल्या अनुसार आवश्यक माहिती बोला",
+        "BrandName": "ब्रांड",
+        "EnterCategory": "श्रेणी प्रविष्ट करा",
+        "CategoryName": "श्रेणी",
+        "NetWeightName": "वजन",
+        "EnterNetWeight": "वजन प्रविष्ट करा",
+        "Quantity": "मात्रा",
+        "EnterQuantity": "मात्रा प्रविष्ट करा",
+        "Threshold": "सीमा",
+        "EnterThreshold": "सीमा प्रविष्ट करा",
+        "Price": "किंमत",
+        "EnterPrice": "किंमत प्रविष्ट करा",
+        "Add": "जोडा",
+        "Success":"सफळता",
+        "Failure":"असफळता"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery": "गॅलरीमधून चित्र निवडा",
+        "TakeAPicture": "चित्र काढा",
+        "Retake": "पुन्हा काढा",
+        "Submit": "सबमिट करा",
+        "CameraPersmissionRequiredMessage": "क्षमा करा, आम्हाला कॅमेरा परवानगीपत्रे आवश्यक आहेत",
+        "NoImage": "कोणतेही चित्र नाहीत",
+        "PleaseSelectImage": "कृपया प्रथम कोणतेही चित्र निवडा किंवा काढा",
+        "UploadSuccessfulMessage": "अपलोड सफळ झाले",
+        "Success": "सफळता",
+        "Failure": "असफळता",
+        "UploadUnsuccessfulMessage": "अपलोड असफळ झाले",
+        "HowdoyouwanttouploadImage": "तुम्हाला इमेज कशी अपलोड करायची आहे?"
+    },
+    "Account": {
+        "username": "यूज़रनेम",
+        "contact": "फोन नंबर",
+        "email": "ईमेल",
+        "language": "भाषा",
+        "city": "शहर",
+        "PersonalDetails": "वैयक्तिक माहिती",
+        "ContactDetails": "संपर्काची माहिती"
+    },
+    "Visualisation": {
+        "Mappingerror": "उत्पादों की मैपिंग करते समय त्रुटि हुई",
+        "Failure": "असफळता",
+        "StockLevelsbyBrands": "ब्रांडों द्वारा स्टॉक स्तर",
+        "QuantitiesbyProducts": "उत्पाद द्वारा मात्राएँ",
+        "TotalSalesbyCategory": "श्रेणी के अनुसार कुल बिक्री"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "अनुमत्ती आवश्यक आहेत",
+        "PleaseGrantAudioRecordingPermissions": "कृपया ऑडियो रेकॉर्डिंगसाठी अनुमती द्या",
+        "RecrodingFailed": "रेकॉर्डिंग असफल झाली",
+        "AnErrorOccuredWhileTryingToStartRecording": "रेकॉर्डिंग सुरू करताना त्रुटी आली",
+        "Success": "सफळता",
+        "AudioProcessedSuccessfully": "ऑडिओवर यशस्वीपणे प्रक्रिया केली",
+        "Failure": "असफळता",
+        "FailedToProcessAudio": "ऑडिओवर प्रक्रिया करण्यात अयशस्वी"
+    }
+}

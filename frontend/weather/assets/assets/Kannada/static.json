@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "ಖಾತೆ",
+        "HELP": "ಸಹಾಯ",
+        "TotalProducts": "ಒಟ್ಟು ಉತ್ಪನ್ನ",
+        "LowInStock": "ಉತ್ಪನ್ನ ಸ್ಟಾಕ್ ಕಡಿಮೆ",
+        "VisualisationForAnalysis": "ದೃಶ್ಯೀಕರಣ",
+        "View": "ನೋಡಿ",
+        "SearchYourProductHere": "ನಿಮ್ಮ ಉತ್ಪನ್ನಗಳನ್ನು ಇಲ್ಲಿ ಹುಡುಕಿ",
+        "Quantity": "ಮೊತ್ತ",
+        "Price":"ಬೆಲೆ",
+        "Inventoryerror": "ಪಟ್ಟಿ ಐಟಂಗಳನ್ನು ಮ್ಯಾಪಿಂಗ್ ದೋಷ",
+        "Failure": "ಅನುತ್ತೀರ್ಣ"
+    },
+    "ChatBot":{
+        "Back":"ಹಿಂದೆ",
+        "HELP":"ಸಹಾಯ",
+        "TypeHere": "ಇಲ್ಲಿ ಬರೆಯಿರಿ",
+        "PermissionsRequired": "ಅನುಮತಿಗಳು ಅಗತ್ಯವಿದೆ",
+        "RecrodingFailed": "ರೆಕಾರ್ಡಿಂಗ್ ವಿಫಲವಾಗಿದೆ",
+        "PleaseGrantAudioRecordingPermissions": "ದಯವಿಟ್ಟು ಆಡಿಯೋ ರೆಕಾರ್ಡಿಂಗ್ ಅನ್ನು ಅನುಮತಿಸಿ",
+        "AnErrorOccuredWhileTryingToStartRecording": "ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಲು ಪ್ರಯತ್ನಿಸುತ್ತಿರುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ"
+    },
+    "Nav":{
+        "Add":"ಸೇರಿಸಿ",
+        "Increment":"ಹೆಚ್ಚಳ",
+        "Decrement": "ಕಳೆಯಿರಿ",
+        "Delete": "ತೆಗೆದುಹಾಕಿ",
+        "WhatOperationDoYouWantToPerform": "ನೀವು ಯಾವ ಕಾರ್ಯಾಚರಣೆಯನ್ನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ಕೆಳಗೆ ನೀಡಿರುವಂತೆ ಅಗತ್ಯ ವಿವರಗಳನ್ನು ಒದಗಿಸಿ",
+        "ProductName": "ಉತ್ಪನ್ನ",
+        "EnterProductName": "ಉತ್ಪನ್ನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+        "BrandName": "ಬ್ರಾಂಡ್",
+        "EnterBrand": "ಬ್ರಾಂಡ್ ನಮೂದಿಸಿ",
+        "EnterQuantity": "ಪ್ರಮಾಣವನ್ನು ನಮೂದಿಸಿ", 
+        "Quantity": "ಮೊತ್ತ",
+        "Increment":"ಹೆಚ್ಚಳ",
+        "Back":"ಹಿಂದೆ",
+        "Failure": "ಅನುತ್ತೀರ್ಣ",
+        "Success": "ಯಶಸ್ಸು"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ಕೆಳಗೆ ನೀಡಿರುವಂತೆ ಅಗತ್ಯ ವಿವರಗಳನ್ನು ಒದಗಿಸಿ",
+        "ProductName": "ಉತ್ಪನ್ನ",
+        "EnterProductName": "ಉತ್ಪನ್ನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+        "BrandName": "ಬ್ರಾಂಡ್",
+        "EnterBrand": "ಬ್ರಾಂಡ್ ನಮೂದಿಸಿ",
+        "EnterQuantity": "ಪ್ರಮಾಣವನ್ನು ನಮೂದಿಸಿ", 
+        "Quantity": "ಮೊತ್ತ",
+        "Decrement": "ಕಳೆಯಿರಿ",
+        "Back":"ಹಿಂದೆ",
+        "Success":"ಯಶಸ್ಸು",
+        "Failure":"ಅನುತ್ತೀರ್ಣ"
+    },
+    "DeleteForm":{
+        "Back":"ಹಿಂದೆ",
+        "SpeakTheRequiredDetailsAsMentioned": "ಕೆಳಗೆ ನೀಡಿರುವಂತೆ ಅಗತ್ಯ ವಿವರಗಳನ್ನು ಒದಗಿಸಿ",
+        "ProductName": "ಉತ್ಪನ್ನ",
+        "EnterProductName": "ಉತ್ಪನ್ನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+        "BrandName": "ಬ್ರಾಂಡ್",
+        "EnterBrand": "ಬ್ರಾಂಡ್ ನಮೂದಿಸಿ",
+        "Delete": "ತೆಗೆದುಹಾಕಿ",
+        "Success": "ಯಶಸ್ಸು",
+        "Failure": "ಅನುತ್ತೀರ್ಣ"
+    },
+    "AddForm":{
+        "Back":"ಹಿಂದೆ",
+        "SpeakTheRequiredDetailsAsMentioned": "ಕೆಳಗೆ ನೀಡಿರುವಂತೆ ಅಗತ್ಯ ವಿವರಗಳನ್ನು ಒದಗಿಸಿ",
+        "ProductName": "ಉತ್ಪನ್ನ",
+        "EnterProductName": "ಉತ್ಪನ್ನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+        "BrandName": "ಬ್ರಾಂಡ್",
+        "EnterBrand": "ಬ್ರಾಂಡ್ ನಮೂದಿಸಿ",
+        "EnterCategory": "ವರ್ಗವನ್ನು ನಮೂದಿಸಿ",
+        "CategoryName":"ವರ್ಗ",
+        "NetWeightName": "ತೂಕ",
+        "EnterNetWeight": "ತೂಕ ನಮೂದಿಸಿ",
+        "Quantity": "ಮೊತ್ತ",
+        "EnterQuantity": "ಪ್ರಮಾಣವನ್ನು ನಮೂದಿಸಿ",
+        "Threshold": "ಮಿತಿ",
+        "EnterThreshold":"ವ್ಯಾಪ್ತಿಯನ್ನು ನಮೂದಿಸಿ",
+        "Price": "ಬೆಲೆ",
+        "EnterPrice": "ಬೆಲೆ ನಮೂದಿಸಿ",
+        "Add":"ಸೇರಿಸಿ",
+        "Success":"ಯಶಸ್ಸು",
+        "Failure":"ಅನುತ್ತೀರ್ಣ"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"ಗ್ಯಾಲರಿಯಿಂದ ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+        "TakeAPicture": "ಚಿತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ",
+        "Retake": "ಮತ್ತೆ ತೆಗೆದುಕೊಳ್ಳಿ",
+        "Submit": "ಸಲ್ಲಿಸು",
+        "CameraPersmissionRequiredMessage": "ಕ್ಷಮಿಸಿ, ನಮಗೆ ಕ್ಯಾಮರಾ ಅನುಮತಿಗಳ ಅಗತ್ಯವಿದೆ",
+        "NoImage": "ಚಿತ್ರವಿಲ್ಲ",
+        "PleaseSelectImage":"ದಯವಿಟ್ಟು ಮೊದಲು ಚಿತ್ರವನ್ನು ಆಯ್ಕೆಮಾಡಿ ಅಥವಾ ಕ್ಲಿಕ್ ಮಾಡಿ",
+        "UploadSuccessfulMessage": "ಅಪ್ಲೋಡ್ ಯಶಸ್ವಿಯಾಗಿದೆ",
+        "Success": "ಯಶಸ್ಸು",
+        "Failure": "ಅನುತ್ತೀರ್ಣ",
+        "UploadUnsuccessfulMessage": "ಅಪ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ",
+        "HowdoyouwanttouploadImage": "ನೀವು ಚಿತ್ರವನ್ನು ಹೇಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?"
+    },
+    "Account": {
+        "username": "ಯೂಸರ್ನೇಮ್‌",
+        "contact": "ಫೋನ್‌ ನಂಬರ್‌",
+        "email": "ಇ-ಮೇಲ್",
+        "language": "ಭಾಷೆ",
+        "city": "ನಗರ",
+        "PersonalDetails": "ವಯಕ್ತಿಕ ಮಾಹಿತಿ",
+        "ContactDetails": "ಸಂಪರ್ಕ ಮಾಹಿತಿ"
+    },
+    "Visualisation": {
+        "Mappingerror": "ಉತ್ಪನ್ನಗಳನ್ನು ಮ್ಯಾಪಿಂಗ್ ಮಾಡುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ",
+        "Failure": "ಅನುತ್ತೀರ್ಣ",
+        "StockLevelsbyBrands": "ಬ್ರಾಂಡ್‌ಗಳ ಮೂಲಕ ಸ್ಟಾಕ್ ಮಟ್ಟಗಳು",
+        "QuantitiesbyProducts": "ಉತ್ಪನ್ನದ ಮೂಲಕ ಪ್ರಮಾಣಗಳು",
+        "TotalSalesbyCategory": "ವರ್ಗದ ಪ್ರಕಾರ ಒಟ್ಟು ಮಾರಾಟ"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "ಅನುಮತಿಗಳ ಅಗತ್ಯವಿದೆ",
+        "PleaseGrantAudioRecordingPermissions": "ದಯವಿಟ್ಟು ಆಡಿಯೋ ರೆಕಾರ್ಡಿಂಗ್ ಅನ್ನು ಅನುಮತಿಸಿ",
+        "RecrodingFailed": "ರೆಕಾರ್ಡಿಂಗ್ ವಿಫಲವಾಗಿದೆ",
+        "AnErrorOccuredWhileTryingToStartRecording": "ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ",
+        "Success": "ಯಶಸ್ಸು",
+        "AudioProcessedSuccessfully": "ಆಡಿಯೊವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಿದೆ",
+        "Failure": "ಅನುತ್ತೀರ್ಣ",
+        "FailedToProcessAudio": "ಆಡಿಯೋ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ವಿಫಲವಾಗಿದೆ"
+    }
+}

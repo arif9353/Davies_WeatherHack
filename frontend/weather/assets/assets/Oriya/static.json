@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "ଆକାଉଣ୍ଟ",
+        "HELP":"ସାହାଯ୍ୟ",
+        "TotalProducts": "ମୋଟ ଉତ୍ପାଦ",
+        "LowInStock": "ଷ୍ଟକରେ କମ ଉତ୍ପାଦନକାରୀ",
+        "VisualisationForAnalysis": "କଠିନୀକରଣ",
+        "View": "ଦେଖନ୍ତୁ",
+        "SearchYourProductHere": "ଏଠାରେ ନିଜ ଉତ୍ପାଦକୁ ଖୋଜନ୍ତୁ",
+        "Quantity": "ପରିମାଣ",
+        "Price": "ମୂଲ୍ୟ",
+        "Inventoryerror": "ତାଲିକା ଆଇଟମଗୁଡିକ ମ୍ୟାପିଂରେ ତ୍ରୁଟି",
+        "Failure": "ବିଫଳ"
+    },
+    "ChatBot":{
+        "HELP":"ସାହାଯ୍ୟ",
+        "Back":"ପଛକୁ",
+        "TypeHere": "ଏଠାରେ ଟାଇପ କରନ୍ତୁ",
+        "PermissionsRequired": "ଅନୁମତି ଆବଶ୍ୟକ",
+        "RecrodingFailed": "ରେକର୍ଡିଂ ବିଫଳ ହେଲା",
+        "PleaseGrantAudioRecordingPermissions": "ଦୟାକରି ଅଡିଓ ରେକର୍ଡିଂକୁ ଅନୁମତି ଦିଅନ୍ତୁ",
+        "AnErrorOccuredWhileTryingToStartRecording": "ରେକର୍ଡିଂ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରିବାବେଳେ ଏକ ତ୍ରୁଟି ଘଟିଗଲା"
+    },
+    "Nav":{
+        "Add":"ଯୋଡନ୍ତୁ",
+        "Increment":"ବୃଦ୍ଧି କରନ୍ତୁ",
+        "Decrement": "କମାଇଥାଏ",
+        "Delete": "କାଢ଼ନ୍ତୁ",
+        "WhatOperationDoYouWantToPerform": "ଆପଣ କେଉଁ ଅପରେସନ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ଆବଶ୍ୟକ ବିବରଣୀ ନିମ୍ନରେ ଉଲ୍ଲେଖ କରାଗଲା",
+        "ProductName": "ଉତ୍ପାଦ",
+        "EnterProductName": "ଉତ୍ପାଦର ନାମ ଭରଣ କରନ୍ତୁ",
+        "BrandName": "ବ୍ରାଣ୍ଡ",
+        "EnterBrand": "ବ୍ରାଣ୍ଡ ଭରଣ କରନ୍ତୁ",
+        "EnterQuantity": "ପରିମାଣ ଭରଣ କରନ୍ତୁ", 
+        "Quantity": "ପରିମାଣ",
+        "Increment":"ବୃଦ୍ଧି କରନ୍ତୁ",
+        "Back":"ପଛକୁ",
+        "Failure": "ବିଫଳ",
+        "Success": "ସଫଳତା"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "ଆବଶ୍ୟକ ବିବରଣୀ ନିମ୍ନରେ ଉଲ୍ଲେଖ କରାଗଲା",
+        "ProductName": "ଉତ୍ପାଦ",
+        "EnterProductName": "ଉତ୍ପାଦର ନାମ ଭରଣ କରନ୍ତୁ",
+        "BrandName": "ବ୍ରାଣ୍ଡ",
+        "EnterBrand": "ବ୍ରାଣ୍ଡ ଭରଣ କରନ୍ତୁ",
+        "EnterQuantity": "ପରିମାଣ ଭରଣ କରନ୍ତୁ", 
+        "Quantity": "ପରିମାଣ",
+        "Decrement": "କମାଇଥାଏ",
+        "Back":"ପଛକୁ",
+        "Failure": "ବିଫଳ",
+        "Success": "ସଫଳତା"
+    },
+    "DeleteForm":{
+        "Back":"ପଛକୁ",
+        "SpeakTheRequiredDetailsAsMentioned": "ଆବଶ୍ୟକ ବିବରଣୀ ନିମ୍ନରେ ଉଲ୍ଲେଖ କରାଗଲା",
+        "ProductName": "ଉତ୍ପାଦ",
+        "EnterProductName": "ଉତ୍ପାଦର ନାମ ଭରଣ କରନ୍ତୁ",
+        "BrandName": "ବ୍ରାଣ୍ଡ",
+        "EnterBrand": "ବ୍ରାଣ୍ଡ ଭରଣ କରନ୍ତୁ",
+        "Delete": "କାଢ଼ନ୍ତୁ",
+        "Failure": "ବିଫଳ",
+        "Success": "ସଫଳତା"
+    },
+    "AddForm":{
+        "Back":"ପଛକୁ",
+        "SpeakTheRequiredDetailsAsMentioned": "ଆବଶ୍ୟକ ବିବରଣୀ ନିମ୍ନରେ ଉଲ୍ଲେଖ କରାଗଲା",
+        "ProductName": "ଉତ୍ପାଦ",
+        "EnterProductName": "ଉତ୍ପାଦର ନାମ ଭରଣ କରନ୍ତୁ",
+        "BrandName": "ବ୍ରାଣ୍ଡ",
+        "EnterBrand": "ବ୍ରାଣ୍ଡ ଭରଣ କରନ୍ତୁ",
+        "EnterCategory": "ଶ୍ରେଣୀ ପ୍ରକିୟା କରନ୍ତୁ",
+        "CategoryName":"ଶ୍ରେଣୀ",
+        "NetWeightName": "ଓଜନ",
+        "EnterNetWeight": "ଓଜନ ପ୍ରବେଶ କରନ୍ତୁ",
+        "EnterQuantity": "ପରିମାଣ ଭରଣ କରନ୍ତୁ", 
+        "Quantity": "ପରିମାଣ",
+        "Threshold": "ସୀମା",
+        "EnterThreshold": "ପରିସର ପ୍ରବେଶ କରନ୍ତୁ",
+        "Price": "ମୂଲ୍ୟ",
+        "EnterPrice": "ମୂଲ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ",
+        "Add":"ଯୋଡନ୍ତୁ",
+        "Failure": "ବିଫଳ",
+        "Success": "ସଫଳତା"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"ଗ୍ୟାଲେରୀରୁ ପ୍ରତିଛବି ବାଛନ୍ତୁ",
+        "TakeAPicture": "ଛବି କ୍ଲିକ୍ କରନ୍ତୁ",
+        "Retake": "ପୁନର୍ବାର ନିଅ",
+        "Submit": "ଦାଖଲ କର",
+        "CameraPersmissionRequiredMessage": "କ୍ଷମା କରିବେ, ଆମକୁ କ୍ୟାମେରା ଆବଶ୍ୟକ",
+        "NoImage": "କୌଣସି ପ୍ରତିଛବି ନାହିଁ",
+        "PleaseSelectImage": "ଦୟାକରି ପ୍ରଥମେ ଏକ ପ୍ରତିଛବି ଚୟନ କରନ୍ତୁ କିମ୍ବା କ୍ଲିକ୍ କରନ୍ତୁ",
+        "UploadSuccessfulMessage": "ସଫଳ ଅପଲୋଡ୍ କରନ୍ତୁ",
+        "Success": "ସଫଳତା",
+        "Failure": "ବିଫଳ",
+        "UploadUnsuccessfulMessage": "ଅପଲୋଡ୍ ବିଫଳ ହେଲା",
+        "HowdoyouwanttouploadImage": "ଆପଣ କିପରି ପ୍ରତିଛବି ଅପଲୋଡ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି?"
+    },
+    "Account": {
+        "username": "ୟୁଜରନେମ୍‌",
+        "contact": "ଫୋ ନୁମ୍ବେ",
+        "email": "ଇ-ମେଲ୍",
+        "language": "ଭାଷା",
+        "city": "ସହର",
+        "PersonalDetails": "ବ୍ୟକ୍ତିଗତ ସୂଚନା",
+        "ContactDetails": "ଯୋଗାଯୋଗ ସୁଚନା"
+    },
+    "Visualisation": {
+        "Mappingerror": "ଉତ୍ପାଦ ମ୍ୟାପିଂ କରିବା ସମୟରେ ତ୍ରୁଟି",
+        "Failure": "ବିଫଳ",
+        "StockLevelsbyBrands": "ବ୍ରାଣ୍ଡ ଦ୍ୱାରା ଷ୍ଟକ ସ୍ତର",
+        "QuantitiesbyProducts": "ଉତ୍ପାଦ ଦ୍ୱାରା ମାତ୍ରାନ୍ତୁ",
+        "TotalSalesbyCategory": "ଶ୍ରେଣୀ ଅନୁସାରେ ମୋଟ ବିକ୍ରି "
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "ଅନୁମତି ଆବଶ୍ୟକ",
+        "PleaseGrantAudioRecordingPermissions": "ଦୟାକରି ଅଡିଓ ରେକର୍ଡିଂକୁ ଅନୁମତି ଦିଅନ୍ତୁ",
+        "RecrodingFailed": "ରେକର୍ଡିଂ ବିଫଳ ହେଲା",
+        "AnErrorOccuredWhileTryingToStartRecording": "ରେକର୍ଡିଂ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରିବାବେଳେ ଏକ ତ୍ରୁଟି ଘଟିଗଲା",
+        "Success": "ସଫଳତା",
+        "AudioProcessedSuccessfully": "ଅଡିଓ ସଫଳତାର ସହିତ ପ୍ରକ୍ରିୟାକରଣ",
+        "Failure": "ବିଫଳ",
+        "FailedToProcessAudio": "ଅଡିଓ ଧାରା ପ୍ରଦାନ କରିବାରେ ବିଫଳ"
+    }
+}

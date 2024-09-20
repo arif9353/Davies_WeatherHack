@@ -1,0 +1,129 @@
+{
+    "dashboard": {
+        "Account": "கணக்கு",
+        "HELP":"உதவி",
+        "TotalProducts": "மொத்த தயாரிப்பு",
+        "LowInStock": "தயாரிப்பு குறைவாக உள்ளது",
+        "VisualisationForAnalysis": "காட்சிப்படுத்தல்",
+        "View": "பார்",
+        "SearchYourProductHere": "உங்கள் தயாரிப்புகளை இங்கே கண்டுபிடி",
+        "Quantity": "தொகை",
+        "Price": "விலை",
+        "Inventoryerror": "பட்டியல் உருப்படிகளை வரைபடமாக்குவதில் பிழை",
+        "Failure": "தோல்வி"
+    },
+    "ChatBot":{
+        "Back":"மீண்டும்",
+        "HELP":"உதவி",
+        "TypeHere": "இங்கே தட்டச்சு செய்யவும்",
+        "PermissionsRequired": "அனுமதிகள் தேவை",
+        "RecrodingFailed": "பதிவு தோல்வியடைந்தது",
+        "PleaseGrantAudioRecordingPermissions": "ஆடியோ பதிவை அனுமதிக்கவும்",
+        "AnErrorOccuredWhileTryingToStartRecording": "பதிவைத் தொடங்கும் போது பிழை ஏற்பட்டது"
+    },
+    "Nav":{
+        "Add": "கூட்டு",
+        "Increment":"அதிகரி",
+        "Decrement": "கழித்தல்",
+        "Delete": "நீக்கு",
+        "WhatOperationDoYouWantToPerform": "எந்த ஆபரேஷன் செய்ய விரும்புகிறீர்கள்?"
+    },
+    "IncrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "கீழே கொடுக்கப்பட்டுள்ளபடி தேவையான விவரங்களை வழங்கவும்",
+        "ProductName": "தயாரிப்பு",
+        "EnterProductName": "தயாரிப்பு பெயரை உள்ளிடவும்",
+        "BrandName": "பிராண்ட்",
+        "EnterBrand": "பிராண்டை உள்ளிடவும்",
+        "Quantity": "அளவுகள்",
+        "EnterQuantity": "அளவை உள்ளிடவும்",
+        "Increment":"அதிகரி",
+        "Back":"மீண்டும்",
+        "Failure": "தோல்வி",
+        "Success": "வெற்றி"
+    },
+    "DecrementForm":{
+        "SpeakTheRequiredDetailsAsMentioned": "கீழே கொடுக்கப்பட்டுள்ளபடி தேவையான விவரங்களை வழங்கவும்",
+        "ProductName": "தயாரிப்பு",
+        "EnterProductName": "தயாரிப்பு பெயரை உள்ளிடவும்",
+        "BrandName": "பிராண்ட்",
+        "EnterBrand": "பிராண்டை உள்ளிடவும்",
+        "Quantity": "அளவுகள்",
+        "EnterQuantity": "அளவை உள்ளிடவும்",
+        "Decrement": "கழித்தல்",
+        "Back":"மீண்டும்",
+        "Failure": "தோல்வி",
+        "Success": "வெற்றி"
+    },
+    "DeleteForm":{
+        "Back":"மீண்டும்",
+        "SpeakTheRequiredDetailsAsMentioned": "கீழே கொடுக்கப்பட்டுள்ளபடி தேவையான விவரங்களை வழங்கவும்",
+        "ProductName": "தயாரிப்பு",
+        "EnterProductName": "தயாரிப்பு பெயரை உள்ளிடவும்",
+        "BrandName": "பிராண்ட்",
+        "EnterBrand": "பிராண்டை உள்ளிடவும்",
+        "Delete": "நீக்கு",
+        "Failure": "தோல்வி",
+        "Success": "வெற்றி"
+    },
+    "AddForm":{
+        "Back":"மீண்டும்",
+        "SpeakTheRequiredDetailsAsMentioned": "கீழே கொடுக்கப்பட்டுள்ளபடி தேவையான விவரங்களை வழங்கவும்",
+        "ProductName": "தயாரிப்பு",
+        "EnterProductName": "தயாரிப்பு பெயரை உள்ளிடவும்",
+        "BrandName": "பிராண்ட்",
+        "EnterBrand": "பிராண்டை உள்ளிடவும்",
+        "EnterCategory": "வகையை உள்ளிடவும்",
+        "CategoryName":"வகை",
+        "NetWeightName": "எடை",
+        "EnterNetWeight": "எடை உள்ளிடவும்",
+        "Quantity": "அளவுகள்",
+        "EnterQuantity": "அளவை உள்ளிடவும்",
+        "Threshold": "வாசல்",
+        "EnterThreshold": "வாசலில் உள்ளிடவும்",
+        "Price": "விலை",
+        "EnterPrice": "விலையை உள்ளிடவும்",
+        "Add":"தாக்கல் செய்யப்பட்டது",
+        "Failure": "தோல்வி",
+        "Success": "வெற்றி"
+    },
+    "PhotoBtn": {
+        "PickAnImageFromGallery":"கேலரியில் இருந்து படத்தை தேர்ந்தெடு",
+        "TakeAPicture": "படத்தை கிளிக் செய்யவும்",
+        "Retake": "மீண்டும் எடு",
+        "Submit": "சமர்ப்பி",
+        "CameraPersmissionRequiredMessage": "மன்னிக்கவும், எங்களுக்கு கேமரா அனுமதிகள் தேவை",
+        "NoImage": "உருவம் இல்லை",
+        "PleaseSelectImage": "முதலில் ஒரு படத்தைத் தேர்ந்தெடுக்கவும் அல்லது கிளிக் செய்யவும்",
+        "UploadSuccessfulMessage": "பதிவேற்றம் வெற்றிகரமாக உள்ளது",
+        "Success": "வெற்றி",
+        "Failure": "தோல்வி",
+        "UploadUnsuccessfulMessage": "பதிவேற்றம் தோல்வியுற்றது",
+        "HowdoyouwanttouploadImage": "படத்தை எவ்வாறு பதிவேற்ற விரும்புகிறீர்கள்?"
+    },
+    "Account": {
+        "username": "யூசர்நேம்‌",
+        "contact": "போன்‌ நம்பர்‌",
+        "email": "இமெயில்‌",
+        "language": "மொழி",
+        "city": "நகரம்",
+        "PersonalDetails": "தனிப்பட்ட தகவல்",
+        "ContactDetails": "தொடர்பு தகவல்"
+    },
+    "Visualisation": {
+        "Mappingerror": "தயாரிப்புகளை மேப்பிங் செய்யும் போது பிழை ஏற்பட்டது",
+        "Failure": "தோல்வி",
+        "StockLevelsbyBrands": "பிராண்டுகள் மூலம் பங்கு நிலைகள்",
+        "QuantitiesbyProducts": "தயாரிப்பு மூலம் அளவுகள்",
+        "TotalSalesbyCategory": "வகை வாரியாக மொத்த விற்பனை"
+    },
+    "AudioBtn": {
+        "PermissionsRequired": "அனுமதிகள் தேவை",
+        "PleaseGrantAudioRecordingPermissions": "தயவுசெய்து ஆடியோ பதிவை அனுமதிக்கவும்",
+        "RecrodingFailed": "பதிவு செய்ய முடியவில்லை",
+        "AnErrorOccuredWhileTryingToStartRecording": "பதிவைத் தொடங்கும் போது பிழை ஏற்பட்டது",
+        "Success": "வெற்றி",
+        "AudioProcessedSuccessfully": "ஆடியோ வெற்றிகரமாக செயலாக்கப்பட்டது",
+        "Failure": "தோல்வி",
+        "FailedToProcessAudio": "ஆடியோவை செயலாக்க முடியவில்லை"
+    }
+}
