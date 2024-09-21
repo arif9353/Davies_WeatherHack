@@ -1,24 +1,33 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import * as Font from "expo-font";
 import * as Progress from 'react-native-progress';
+import * as Animatable from 'react-native-animatable';
 
 const AQIInfo = ({ aqi, remark, location, res, navigation }) => {
-
     const [fontsLoaded] = Font.useFonts({
-        ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"), 
-        ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"), 
-        ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"), 
-        ManropeLight: require("../assets/fonts/Manrope-Light.ttf"), 
-        ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"), 
-        ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"), 
-        ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"), 
-        Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"), 
+        ManropeReg: require("../assets/fonts/Manrope-Regular.ttf"),
+        ManropeBold: require("../assets/fonts/Manrope-Bold.ttf"),
+        ManropeSemiB: require("../assets/fonts/Manrope-SemiBold.ttf"),
+        ManropeLight: require("../assets/fonts/Manrope-Light.ttf"),
+        ManropeExtraL: require("../assets/fonts/Manrope-ExtraLight.ttf"),
+        ManropeExtraB: require("../assets/fonts/Manrope-ExtraBold.ttf"),
+        ManropeMedium: require("../assets/fonts/Manrope-Medium.ttf"),
+        Julius: require("../assets/fonts/JuliusSansOne-Regular.ttf"),
     });
 
-    const toDetails = async() => {
-        try{
+    // Function to determine AQI emoji based on the value
+    const getAQIEmoji = (aqi) => {
+        if (aqi <= 250) return '😄';  // Good
+        if (aqi <= 300) return '😐';  // Moderate
+        if (aqi <= 370) return '😷';  // Unhealthy for Sensitive Groups
+        if (aqi <= 450) return '🤢';  // Unhealthy
+        if (aqi <= 500) return '😵';  // Very Unhealthy
+        return '💀';  // Hazardous
+    };
+
+    const toDetails = async () => {
+        try {
             console.log("Function to navigate");
             navigation.navigate("DetailsPage");
         } catch (error) {
@@ -28,18 +37,30 @@ const AQIInfo = ({ aqi, remark, location, res, navigation }) => {
 
     return (
         <View style={styles.aqiContainer}>
-            <View style={styles.dets}>
-                <Text style={styles.pmText}>AQI value</Text>
+            <View style={styles.emojiBox}>
+                <View style={styles.dets}>
+                    <Text style={styles.pmText}>AQI value</Text>
+                    {/* Animated Emoji based on AQI */}
+                </View>
+                <Animatable.Text
+                    animation="bounceIn"
+                    iterationCount="one"
+                    duration={6000
+                    }
+                    style={styles.emoji}
+                >
+                    {getAQIEmoji(aqi)}
+                </Animatable.Text>
             </View>
             <View style={styles.rowMain}>
                 <View style={styles.colProgress}>
                     <View style={styles.thirdText}>
-                        {/* <Text style={styles.aqiValue}>{aqi}</Text> */}
                         <Text style={[styles.text, styles.textShadow]}>{aqi}</Text>
                         <Text style={styles.text}>{aqi}</Text>
                     </View>
+
                     <Progress.Bar 
-                        progress={aqi/600} 
+                        progress={aqi / 600} 
                         width={160} 
                         height={6}
                         color="#B22D30" 
@@ -49,36 +70,29 @@ const AQIInfo = ({ aqi, remark, location, res, navigation }) => {
                         style={styles.progressBar} 
                     />
                 </View>
+
                 <View style={styles.col}>
                     <View style={styles.rowInfo}>
                         <Text style={styles.resText}>{res}</Text>
-                        {/* <Text style={styles.info}>info</Text> */}
                     </View>
                     <View style={styles.descInfo}>
                         <Text style={styles.desc}>
-                        A higher AQI means unhealthy air, while a lower AQI means the air is cleaner.
+                            A higher AQI means unhealthy air, while a lower AQI means the air is cleaner.
                         </Text>
-                        {/* <TouchableOpacity onPress={toDetails}>
-                            <Text style={styles.moreInfo}>more info</Text>
-                        </TouchableOpacity> */}
                     </View>
                 </View>
             </View>
+
+            
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     aqiContainer: {
-        // alignItems: 'center',
         marginTop: 20,
         width: "90%",
         marginHorizontal: "auto"
-    },
-    aqiText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: '300',
     },
     resText: {
         fontFamily: "ManropeLight",
@@ -99,7 +113,6 @@ const styles = StyleSheet.create({
         fontFamily: "ManropeBold",
         fontSize: 126,
         color: '#f8d7da', // Light pink color
-        // position: 'absolute',
         lineHeight: 130
     },
     textShadow: {
@@ -108,36 +121,25 @@ const styles = StyleSheet.create({
         left: 4.5,
         top: 4.5,
     },
-    row: {
-        flexDirection: "row",
-        gap: 20
-    },
     rowMain: {
         flexDirection: "row",
         gap: 20,
         marginTop: "4%",
         marginBottom: "10%"
     },
-    col: {
-        flexDirection: "column",
-    },
     colProgress: {
         flexDirection: "column",
         alignItems: "center"
     },
-    rowInfo: {
-        flexDirection: "row",
-        gap: 4
-    },
-    info: {
-        color: "white",
-        fontFamily: "ManroperExtraL",
-        fontSize: 10
-    },
     dets: {
+        padding: "1%",
         borderRadius: 32,
         backgroundColor: 'rgba(102, 10, 12, 0.49)',
         alignSelf: 'flex-start'
+    },
+    emojiBox: {
+        flexDirection: "row",
+        alignItems: "center"
     },
     pmText: {
         fontFamily: "ManropeExtraB",
@@ -156,19 +158,11 @@ const styles = StyleSheet.create({
         flexWrap: "wrap",
         width: "38%"
     },
-    descInfo: {
-        flexDirection: "column",
-        gap: 6
-    },
-    moreInfo: {
-        fontSize: 14,
-        fontFamily: "ManropeSemiB",
+    emoji: {
+        fontSize: 36,
+        textAlign: 'center',
+        // marginTop: 20,
         color: '#fff',
-        textDecorationLine: "underline"
-    },
-    timeText: {
-        fontSize: 24,
-        fontWeight: 'bold',
     },
 });
 

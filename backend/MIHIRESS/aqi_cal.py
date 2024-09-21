@@ -45,24 +45,18 @@ def ret():
     try:
         endpoint = "https://blogcontent.site/projects/aqinew.php"
         respo = requests.get(endpoint).json()
-        # print(respo)
         data = {}
-        data["PM10"] = int(float(respo["calulated_values"]["PM10"]))
-        data["NO2"] = int(float(respo["calulated_values"]["O3"]))
-        data["O3"] = int(float(respo["calulated_values"]["NO2"]))
-        data["SO2"] = int(float(respo["calulated_values"]["SO2"]))
+        data["PM10"] = int(float(respo["calulated_values"]["PM10"])) + 2
+        data["NO2"] = int(float(respo["calulated_values"]["O3"])) + 2
+        data["O3"] = int(float(respo["calulated_values"]["NO2"])) + 2
+        data["SO2"] = int(float(respo["calulated_values"]["SO2"])) + 2
         data["NH3"] = 0
-        # data["NO"] = 0
-        data["PM2.5"] = int(float(respo["calulated_values"]["PM2.5"]))
-        data["CO"] = int(round(float(respo["calulated_values"]["CO"]) / 1000, 2))
-        aqi_val = {pollutant: calculate_aqi(concentration, breakpoints[pollutant]) for pollutant, concentration in data.items()}
-        print(f"\n\nret/aqi_val: {aqi_val}")
-        overall_aqi = max(aqi_val.values())
-        # print(overall_aqi)
-        remark, health_impact = get_aqi_cat(overall_aqi)
-        # print(f"Remark: {remark}\n Impact: {health_impact}")
-        pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
-        return {"pollutants": data, "aqi": round(overall_aqi, 0), "remark": remark, "impact": health_impact, "pollutant_res": pollutant_res}
+        data["PM2.5"] = int(float(respo["calulated_values"]["PM2.5"])) + 2
+        data["CO"] = int(round(float(respo["calulated_values"]["CO"]) / 1000, 2)) + 2
+        aqi_val = max(data["PM10"], data["PM2.5"], data["O3"], data["SO2"], data["CO"], data["NH3"], data["NO2"])
+        print(f"\n\nret/aqi_val: {aqi_val}")       
+        pollutant_res = max(data, key=data.get)
+        return {"pollutants": data, "aqi": aqi_val, "pollutant_res": pollutant_res}
     except Exception as e:
         print(f"Exception in api_cal's ret method: {e}")
         return (e)
@@ -73,51 +67,21 @@ def calculate_multiple_aqi(input_data):
     try:
         # List to store AQI results for each set
         aqi_results = []
+        print(f"\n\nInput Data in Multiple AQI:\n{input_data}\n\n")
 
-        # Get the number of sets (assuming all pollutant lists have the same length)
-        num_sets = len(input_data['PM10'])
+        # Iterate through each pair (index of all pollutant lists)
+        for i in range(len(input_data['PM10'])):
+            pollutants = {key: input_data[key][i] for key in input_data}
+            
+            # Calculate the max pollutant value in the pair
+            max_pollutant_value = max(pollutants.values())
+            max_pollutant = max(pollutants, key=pollutants.get)
 
-        print(f"aqi_cal/Num_sets: {num_sets}")
-
-        # Iterate through each set of pollutants (by index)
-        for i in range(num_sets):
-            # Get the i-th concentration for each pollutant
-            pollutants_set = {
-                "PM10": input_data["PM10"][i],
-                "PM2.5": input_data["PM2.5"][i],
-                "SO2": input_data["SO2"][i],
-                "NO2": input_data["NO2"][i],
-                "CO": input_data["CO"][i],
-                "O3": input_data["O3"][i],
-            }
-
-            print(f"aqi_cal/pollutants set: {pollutants_set}")
-
-            # Calculate AQI for each pollutant in the current set, handling None cases
-            aqi_val = {}
-            for pollutant, concentration in pollutants_set.items():
-                aqi_val[pollutant] = calculate_aqi(concentration, breakpoints[pollutant])
-                
-                # If AQI is None, assign a default low AQI value, or skip
-                if aqi_val[pollutant] is None:
-                    print(f"Warning: AQI calculation returned None for pollutant: {pollutant}")
-                    aqi_val[pollutant] = 0  # You can change this to a suitable default
-
-            # Find the overall AQI (the max of individual AQI values)
-            overall_aqi = max(aqi_val.values())
-
-            # Get the remark and health impact based on the overall AQI
-            remark, health_impact = get_aqi_cat(overall_aqi)
-
-            # Find the pollutant responsible for the highest AQI
-            pollutant_res = list(filter(lambda x: aqi_val[x] == overall_aqi, aqi_val))[0]
-
-            # Store the result for this set
+            # Append the results
             aqi_results.append({
-                "aqi": overall_aqi,
-                "pollutant_res": pollutant_res
+                "aqi": max_pollutant_value,
+                "pollutant_res": max_pollutant
             })
-
         return aqi_results
 
     except Exception as e:

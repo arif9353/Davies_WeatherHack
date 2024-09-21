@@ -219,9 +219,9 @@ const ChatScreen = () => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.helpSection}>
-                        <View style={styles.chat_icon_container}>
+                        {/* <View style={styles.chat_icon_container}>
                             <Image source={ChatIcon} style={styles.chat_icon} />
-                        </View>
+                        </View> */}
                         {/* Language Picker */}
                         <RNPickerSelect
                             onValueChange={(value) => setSelectedLanguage(value)}
@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
     messagesContainer: {
         flex: 1,
         paddingHorizontal: 14,
-        backgroundColor: "#E7ECEF",
+        backgroundColor: "#F6ECEC",
     },
     message: {
         padding: 10,
@@ -353,14 +353,14 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
         borderBottomLeftRadius: 2,
-        backgroundColor: "#002e4f",
+        backgroundColor: "#B22D30",
         flexDirection: "row",
         paddingHorizontal: 18,
     },
     userMessageText: {
         fontSize: 16,
         fontWeight: "500",
-        color: "#002e4f",
+        color: "#B22D30",
         textAlign: "left"
     },
     botMessageText: {
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
     inpCont: {
-        backgroundColor: "#E7ECEF",
+        backgroundColor: "#F6ECEC",
 
     },
     inputContainer: {
@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
         padding: 10,
     },
     icon: {
-        color: "#002E4F"
+        color: "#B22D30"
     }
 });
 

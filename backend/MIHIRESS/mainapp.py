@@ -38,14 +38,6 @@ async def get_aqi_and_climate_data():
         answer["humidity"] = climate["humidity"]
         answer["wind"] = climate["wind"]
         answer["precipitation"] = climate["precipitation"]
-        # answer["recommendation"] = recommend()
-        print(f"AQI Val: {answer['pollutants']}\nOverall AQI: {answer['aqi']}\nPollutant Responsible: {answer['pollutant_res']}\nRemark: {answer['remark']}\nImpact: {answer['impact']}")
-        # model_address = "../ARIF/AQI_Weather_Data.csv"
-        # future_df = forecast_aqi(model_address)
-        # future_df["AQI_CO"] /= 1000
-        # future = []
-        # for row in future_df.iterrows():
-        #     future.append(ret_future(row[1]["AQI_PM2.5"], row[1]["AQI_PM10"], row[1]["AQI_NO2"], row[1]["AQI_CO"], row[1]["AQI_SO2"], (row[0].time()).hour))
         return JSONResponse(content={"message": answer, "success": True}, status_code=200)
     except Exception as e:
         print(f"Error is {e}")
@@ -66,19 +58,6 @@ async def future_prediction():
     except Exception as e:
         print(f"Error: {e}")
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
-    
-# @app.get('/forecast_aqi')
-# async def get_forecasted_aqi():
-#     try:
-#         # Call the function to get the forecasted AQI values
-#         forecast_aqi = forecast_aqi_for_8_hours()
-#         # Return the forecasted AQI values as a nested JSON
-#         return JSONResponse(content={"message": forecast_aqi, "success": True}, status_code=200)
-    
-#     except Exception as e:
-#         print(f"Error: {e}")
-#         return JSONResponse(content={"message": str(e), "success": False}, status_code=500)
-
 
 @app.get('/forecast_aqi')
 async def get_forecasted_aqi():
@@ -155,17 +134,27 @@ async def outdoor_recom(request: Request):
     except Exception as e:
         return JSONResponse(content={"message": e, "success": False}, status_code=500)
 
+def max_val(pm2_5, pm10):
+    if(pm2_5 >= pm10):
+        return pm2_5, "PM2.5"
+    else:
+        return pm10, "PM10"
 
 @app.post('/indoor')
 async def indoor_recom(request: Request):
     try:
         endpoint = "https://blogcontent.site/projects/indooraqi.php"
         respo = requests.get(endpoint).json()
+        print(respo)
         answer = {}
         body = await request.json()
+        print(body)
         future_forecast_aqi = body.get("futureforecastAQI")
         user_details = body.get("userDetails")
-        answer["aqi"], answer["pollutant_res"] = indoor_aqi(int(respo["pm2p5"]), int(respo["pm10"]))
+        pm2_5 = int(respo["pm2p5"])
+        pm10 = int(respo["pm10"])
+        answer["aqi"], answer["pollutant_res"] = max_val(pm2_5, pm10)
+        print("\n\n",answer)
         climate = base_ret()
         answer["temp"] = climate["temp"]
         answer["humidity"] = climate["humidity"]
